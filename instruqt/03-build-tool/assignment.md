@@ -122,7 +122,7 @@ Fill in the tool configuration form:
 ```nocopy,wrap
 "output": "Customer Profile for user_member:\nName: Alex Hiker\nLoyalty Tier: platinum\nLifetime Value: $4500\nPurchase History: 3 items\n"
 ```
-8. Click Cancel to close the test ox
+8. Click Cancel to close the test box
 
 ---
 

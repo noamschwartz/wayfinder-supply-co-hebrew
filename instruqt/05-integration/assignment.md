@@ -88,11 +88,11 @@ You'll see some of the following calls
 	![CleanShot 2025-12-16 at 11.36.42@2x.png](../assets/CleanShot%202025-12-16%20at%2011.36.42%402x.png)
 
 6. **E-Commerce tie-in**<br>
-Our Agent and tools built a helpful trip itineary for our customer. However, ultimately as an e-commerce store we are selling products. <br>
+Our Agent and tools built a helpful trip itinerary for our customer. However, ultimately as an e-commerce store we are selling products. <br>
 Our trip planner extracts
 	1. product suggests, which we sell. Users can click on the + in the small card to add the item to the cart
 	 ![CleanShot 2025-12-16 at 11.40.03@2x.png](../assets/CleanShot%202025-12-16%20at%2011.40.03%402x.png)
-	1. Daily trip itinary details
+	1. Daily trip itinerary details
 	![CleanShot 2025-12-16 at 11.42.55@2x.png](../assets/CleanShot%202025-12-16%20at%2011.42.55%402x.png)
 
 

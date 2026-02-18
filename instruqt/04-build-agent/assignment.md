@@ -68,7 +68,7 @@ You'll create an agent that:
 
 ## Step 3: Configure Basic Agent Information
 
-### Syatem references
+### System references
 1. **Agent ID**: Enter
 	```
 	trip-planner-agent
@@ -164,7 +164,7 @@ Always prioritize safety and use ONLY Wayfinder catalog products in recommendati
    - This description shown in the UI
 
 6. You can leave Avatar color and symbol fields empty
-	- Or freel free to fill them in as you like
+	- Or feel free to fill them in as you like
 
 ![CleanShot 2025-12-16 at 10.49.53@2x.png](../assets/CleanShot%202025-12-16%20at%2010.49.53%402x.png)
 
@@ -207,12 +207,12 @@ Now you need to assign tools to your agent. Tools are the capabilities the agent
    I'm planning a 3-day backpacking trip to Yosemite next weekend. What gear do I need?
    ```
 
-3. Your specific response will varry, as LLMs are non-deterministic. But you should get a nice itinary including some or all of the following sections:
+3. Your specific response will vary, as LLMs are non-deterministic. But you should get a nice itinerary including some or all of the following sections:
 	- Trip Overview
 	- Safety Notes
 	- Essential Gear Recommendations
 		- These are products we can sell to our customers!
-	- Day-by-Dat Itinerary
+	- Day-by-Day Itinerary
 ![CleanShot 2025-12-16 at 11.07.39@2x.png](../assets/CleanShot%202025-12-16%20at%2011.07.39%402x.png)
    _note:_ your specific output may be different than the screenshot
 
