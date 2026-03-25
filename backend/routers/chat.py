@@ -146,18 +146,18 @@ async def stream_agent_response(message: str, agent_id: str = "wayfinder-search-
                     yield format_sse_event("error", {"error": f"Agent Builder API error: {error_text}"})
                     return
                 
-                buffer = ""
+                byte_buffer = b""
                 current_event_type = ""
                 steps = []
                 conversation_id = ""
-                
+
                 async for chunk in response.aiter_bytes():
-                    buffer += chunk.decode()
-                    
-                    # Process complete lines
-                    while "\n" in buffer:
-                        line, buffer = buffer.split("\n", 1)
-                        line = line.strip()
+                    byte_buffer += chunk
+
+                    # Process complete lines (decode only full lines to avoid splitting multi-byte UTF-8 chars)
+                    while b"\n" in byte_buffer:
+                        line_bytes, byte_buffer = byte_buffer.split(b"\n", 1)
+                        line = line_bytes.decode("utf-8", errors="replace").strip()
                         
                         if not line:
                             continue
