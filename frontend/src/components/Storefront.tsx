@@ -14,7 +14,14 @@ interface StorefrontProps {
   focusMode?: boolean
 }
 
-const categories = ['All', 'Camping', 'Hiking', 'Climbing', 'Water Sports', 'Winter']
+const categories = [
+  { value: 'All', label: 'הכל' },
+  { value: 'Camping', label: 'קמפינג' },
+  { value: 'Hiking', label: 'טיולים' },
+  { value: 'Climbing', label: 'טיפוס' },
+  { value: 'Water Sports', label: 'ספורט מים' },
+  { value: 'Winter', label: 'חורף' },
+]
 
 // Inline mock products for demo mode (used when backend is unavailable)
 const MOCK_PRODUCTS: Product[] = [
@@ -162,7 +169,7 @@ export function Storefront({ userId, onStartChat, focusMode = false }: Storefron
             >
               <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
               <p className="text-amber-200 text-sm">
-                <span className="font-semibold">Demo Mode:</span> Showing sample products (backend unavailable)
+                <span className="font-semibold">:מצב הדגמה</span> מציג מוצרים לדוגמה (השרת לא זמין)
               </p>
             </motion.div>
           )}
@@ -175,23 +182,23 @@ export function Storefront({ userId, onStartChat, focusMode = false }: Storefron
           >
             <div className="flex items-center gap-3 mb-6">
               <Filter className="w-5 h-5 text-gray-400" />
-              <h2 className="text-2xl font-display font-bold text-white">Shop by Category</h2>
+              <h2 className="text-2xl font-display font-bold text-white">קנו לפי קטגוריה</h2>
             </div>
             <div className="flex flex-wrap gap-2">
               {categories.map((category, index) => (
                 <motion.button
-                  key={category}
+                  key={category.value}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  onClick={() => setSelectedCategory(category)}
+                  onClick={() => setSelectedCategory(category.value)}
                   className={`px-6 py-2.5 rounded-full font-medium transition-all ${
-                    selectedCategory === category
+                    selectedCategory === category.value
                       ? 'bg-primary text-white shadow-lg shadow-primary/30'
                       : 'bg-slate-800 text-gray-300 hover:bg-slate-700 border border-slate-700'
                   }`}
                 >
-                  {category}
+                  {category.label}
                 </motion.button>
               ))}
             </div>

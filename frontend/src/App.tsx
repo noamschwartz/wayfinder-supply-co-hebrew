@@ -259,7 +259,7 @@ function App() {
                     alt="Elastic" 
                     className="w-4 h-4 object-contain"
                   />
-                  <span>Powered by Elastic</span>
+                  <span>מבוסס על Elastic</span>
                 </a>
               </div>
               {/* Mobile Menu Button */}
@@ -280,7 +280,7 @@ function App() {
               {focusMode && (
                 <div className="flex items-center gap-2 px-3 py-1.5 bg-primary/20 text-primary rounded-lg text-sm">
                   <Eye className="w-4 h-4" />
-                  <span>Focus Mode</span>
+                  <span>מצב מיקוד</span>
                 </div>
               )}
               <nav className="hidden lg:flex gap-1">
@@ -296,7 +296,7 @@ function App() {
                   }`}
                 >
                   <Home className="w-4 h-4" />
-                  Store
+                  חנות
                 </button>
                 <button
                   onClick={() => {
@@ -310,7 +310,7 @@ function App() {
                   }`}
                 >
                   <MapPin className="w-4 h-4" />
-                  Trip Planner
+                  מתכנן טיולים
                 </button>
                 {!focusMode && (
                   <button
@@ -325,7 +325,7 @@ function App() {
                     }`}
                   >
                     <ShoppingCart className="w-4 h-4" />
-                    Cart
+                    עגלה
                   </button>
                 )}
               </nav>
@@ -335,10 +335,10 @@ function App() {
                 onClick={handleStartDemo}
                 disabled={isDemoRunning}
                 className="hidden sm:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary to-cyan-500 hover:from-primary-dark hover:to-cyan-600 text-white rounded-lg transition-all border border-primary/30 disabled:opacity-50 disabled:cursor-not-allowed font-medium text-sm shadow-lg shadow-primary/20"
-                title="Watch Demo"
+                title="צפה בהדגמה"
               >
                 <Play className="w-4 h-4" />
-                Watch Demo
+                צפו בהדגמה
               </button>
               {/* Wow Demos Dropdown */}
               <div className="relative hidden sm:block">
@@ -367,8 +367,8 @@ function App() {
                       className="w-full px-4 py-3 text-left hover:bg-slate-700 transition-colors flex items-center gap-3"
                     >
                       <div className="flex-1">
-                        <div className="text-white font-medium">Personalization Difference</div>
-                        <div className="text-gray-400 text-xs mt-1">Compare Guest vs Sarah results</div>
+                        <div className="text-white font-medium">הבדלי התאמה אישית</div>
+                        <div className="text-gray-400 text-xs mt-1">השוו תוצאות אורח לעומת שרה</div>
                       </div>
                     </button>
                     <button
@@ -379,8 +379,8 @@ function App() {
                       className="w-full px-4 py-3 text-left hover:bg-slate-700 transition-colors flex items-center gap-3 border-t border-slate-700"
                     >
                       <div className="flex-1">
-                        <div className="text-white font-medium">Search Mode Comparison</div>
-                        <div className="text-gray-400 text-xs mt-1">Lexical vs Hybrid vs Agentic</div>
+                        <div className="text-white font-medium">השוואת מצבי חיפוש</div>
+                        <div className="text-gray-400 text-xs mt-1">לקסיקלי לעומת היברידי לעומת אגנטי</div>
                       </div>
                     </button>
                   </div>
@@ -389,7 +389,7 @@ function App() {
               <button
                 onClick={() => setSearchPanelOpen(true)}
                 className="flex items-center justify-center w-10 h-10 bg-primary/20 hover:bg-primary/30 text-primary rounded-lg transition-all border border-primary/30"
-                title="Search & Chat"
+                title="חיפוש וצ׳אט"
               >
                 <Search className="w-5 h-5" />
               </button>
@@ -431,7 +431,7 @@ function App() {
                   }`}
                 >
                   <Home className="w-4 h-4" />
-                  Store
+                  חנות
                 </button>
                 <button
                   onClick={() => {
@@ -445,7 +445,7 @@ function App() {
                   }`}
                 >
                   <MapPin className="w-4 h-4" />
-                  Trip Planner
+                  מתכנן טיולים
                 </button>
                 <button
                   onClick={() => {
@@ -654,7 +654,7 @@ function App() {
             className="bg-slate-900 rounded-2xl shadow-2xl border border-slate-700 w-full max-w-2xl"
           >
             <div className="flex items-center justify-between p-6 border-b border-slate-700">
-              <h2 className="text-2xl font-display font-bold text-white">Keyboard Shortcuts</h2>
+              <h2 className="text-2xl font-display font-bold text-white">קיצורי מקלדת</h2>
               <button
                 onClick={() => setShowKeyboardHelp(false)}
                 className="p-2 rounded-lg hover:bg-white/10 transition-colors"
@@ -665,11 +665,11 @@ function App() {
             <div className="p-6 space-y-4">
               <div className="space-y-2">
                 <div className="flex items-center justify-between py-2 border-b border-slate-700">
-                  <span className="text-gray-300">Focus Mode</span>
+                  <span className="text-gray-300">מצב מיקוד</span>
                   <kbd className="px-2 py-1 bg-slate-800 rounded text-sm text-gray-300">Ctrl+Shift+F</kbd>
                 </div>
                 <div className="flex items-center justify-between py-2 border-b border-slate-700">
-                  <span className="text-gray-300">Narration Banners</span>
+                  <span className="text-gray-300">באנרי הסבר</span>
                   <kbd className="px-2 py-1 bg-slate-800 rounded text-sm text-gray-300">Ctrl+Shift+N</kbd>
                 </div>
                 <div className="flex items-center justify-between py-2 border-b border-slate-700">
@@ -681,7 +681,7 @@ function App() {
                   <kbd className="px-2 py-1 bg-slate-800 rounded text-sm text-gray-300">Ctrl+Shift+2</kbd>
                 </div>
                 <div className="flex items-center justify-between py-2">
-                  <span className="text-gray-300">Show This Help</span>
+                  <span className="text-gray-300">הצג עזרה</span>
                   <kbd className="px-2 py-1 bg-slate-800 rounded text-sm text-gray-300">?</kbd>
                 </div>
               </div>

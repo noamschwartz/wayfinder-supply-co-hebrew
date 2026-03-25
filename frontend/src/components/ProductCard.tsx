@@ -64,7 +64,7 @@ export function ProductCard({ product, userId, onClick }: ProductCardProps) {
               }`}
               onLoad={() => setImageLoaded(true)}
               onError={(e) => {
-                (e.target as HTMLImageElement).src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect fill="%231e293b" width="400" height="400"/><text fill="%2364748b" font-family="sans-serif" font-size="18" x="50%25" y="50%25" text-anchor="middle" dy=".3em">No Image</text></svg>'
+                (e.target as HTMLImageElement).src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect fill="%231e293b" width="400" height="400"/><text fill="%2364748b" font-family="sans-serif" font-size="18" x="50%25" y="50%25" text-anchor="middle" dy=".3em">אין תמונה</text></svg>'
                 setImageLoaded(true)
               }}
             />
@@ -74,7 +74,7 @@ export function ProductCard({ product, userId, onClick }: ProductCardProps) {
           </>
         ) : (
           <div className="w-full h-full flex items-center justify-center text-slate-500">
-            No Image
+            אין תמונה
           </div>
         )}
       </div>
@@ -100,13 +100,13 @@ export function ProductCard({ product, userId, onClick }: ProductCardProps) {
                   ))}
                 </div>
                 <span className="text-xs text-gray-500">
-                  {product.average_rating.toFixed(1)} ({product.review_count} reviews)
+                  {product.average_rating.toFixed(1)} ({product.review_count} ביקורות)
                 </span>
               </div>
             )}
           </div>
           <div className="text-2xl font-display font-bold text-primary ml-3">
-            ${product.price.toFixed(2)}
+            ₪{product.price.toFixed(2)}
           </div>
         </div>
         <p className="text-sm text-gray-300 mb-4 line-clamp-2 leading-relaxed">
@@ -129,7 +129,7 @@ export function ProductCard({ product, userId, onClick }: ProductCardProps) {
           className="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-4 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-[1.02]"
         >
           <ShoppingCart className="w-4 h-4" />
-          {adding ? 'Adding...' : 'Add to Cart'}
+          {adding ? 'מוסיף...' : 'הוסף לעגלה'}
         </button>
       </div>
     </motion.div>

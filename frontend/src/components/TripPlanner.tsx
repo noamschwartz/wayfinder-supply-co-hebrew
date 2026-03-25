@@ -35,17 +35,17 @@ interface TripPlannerProps {
 // Get current thinking status from trace events
 function getCurrentStatus(events: ThoughtTraceEvent[], isLoading: boolean): string {
   if (!isLoading) return ''
-  if (events.length === 0) return 'Starting up...'
+  if (events.length === 0) return 'מתחיל...'
   
   const lastEvent = events[events.length - 1]
   if (lastEvent.event === 'reasoning') {
-    return 'Thinking...'
+    return 'חושב...'
   } else if (lastEvent.event === 'tool_call') {
     return getToolStatusMessage(lastEvent.data?.tool_id || '')
   } else if (lastEvent.event === 'tool_result') {
-    return 'Processing results...'
+    return 'מעבד תוצאות...'
   }
-  return 'Working...'
+  return 'עובד...'
 }
 
 // Known brand names in our catalog
@@ -720,7 +720,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
                 type="text"
                 value={tripContext.destination}
                 onChange={(e) => setTripContext({ ...tripContext, destination: e.target.value })}
-                placeholder="e.g., Rocky Mountains"
+                placeholder="לדוגמה: מכתש רמון"
                 className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
@@ -733,7 +733,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
                 type="text"
                 value={tripContext.dates}
                 onChange={(e) => setTripContext({ ...tripContext, dates: e.target.value })}
-                placeholder="e.g., This weekend"
+                placeholder="לדוגמה: סוף השבוע הזה"
                 className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
@@ -746,7 +746,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
                 type="text"
                 value={tripContext.activity}
                 onChange={(e) => setTripContext({ ...tripContext, activity: e.target.value })}
-                placeholder="e.g., Backpacking"
+                placeholder="לדוגמה: טרקים"
                 className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
               />
             </div>
@@ -916,7 +916,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Where should we go next?"
+                  placeholder="לאן נצא בפעם הבאה?"
                   disabled={isLoading}
                   className="w-full bg-slate-950 border border-white/10 rounded-xl px-4 py-3 pr-12 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all disabled:opacity-50"
                 />
@@ -957,7 +957,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
                       </div>
                       <div className="flex-1 min-w-0">
                         <h5 className="text-xs font-bold text-white truncate mb-0.5">{product.title}</h5>
-                        <div className="text-xs text-primary font-bold">${product.price}</div>
+                        <div className="text-xs text-primary font-bold">&#8362;{product.price}</div>
                         {product.reason && (
                           <div className="text-[10px] text-gray-500 line-clamp-1 italic">
                             {product.reason}
@@ -972,7 +972,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
                             ? 'bg-green-500 scale-110 animate-pulse text-white' 
                             : 'bg-primary/20 hover:bg-primary/30 text-primary'
                         } disabled:opacity-50`}
-                        title={justAddedToCart === product.id ? 'Added!' : 'Add to cart'}
+                        title={justAddedToCart === product.id ? '!נוסף' : 'הוסף לעגלה'}
                       >
                         {addingToCart === product.id ? (
                           <Loader2 className="w-3.5 h-3.5 animate-spin" />

@@ -80,13 +80,13 @@ export function CheckoutPage({ userId, loyaltyTier, onBack, onOrderComplete }: C
     return (
       <div className="max-w-4xl mx-auto">
         <div className="bg-white rounded-2xl border border-slate-200 shadow-lg p-12 text-center">
-          <h3 className="text-2xl font-display font-bold text-slate-900 mb-2">Your cart is empty</h3>
-          <p className="text-slate-600 mb-4">Add some products to checkout!</p>
+          <h3 className="text-2xl font-display font-bold text-slate-900 mb-2">העגלה ריקה</h3>
+          <p className="text-slate-600 mb-4">הוסיפו מוצרים לתשלום!</p>
           <button
             onClick={onBack}
             className="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-xl transition-all"
           >
-            Continue Shopping
+            המשך קניות
           </button>
         </div>
       </div>
@@ -100,10 +100,10 @@ export function CheckoutPage({ userId, loyaltyTier, onBack, onOrderComplete }: C
         className="flex items-center gap-2 text-gray-400 hover:text-white mb-6 transition-colors"
       >
         <ArrowLeft className="w-4 h-4" />
-        Back to Cart
+        חזרה לעגלה
       </button>
 
-      <h1 className="text-4xl font-display font-bold text-white mb-8">Checkout</h1>
+      <h1 className="text-4xl font-display font-bold text-white mb-8">תשלום</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Form */}
@@ -114,12 +114,12 @@ export function CheckoutPage({ userId, loyaltyTier, onBack, onOrderComplete }: C
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                 <MapPin className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="text-2xl font-display font-bold text-white">Shipping Address</h2>
+              <h2 className="text-2xl font-display font-bold text-white">כתובת למשלוח</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">שם מלא</label>
                 <input
                   type="text"
                   value={shipping.name}
@@ -128,7 +128,7 @@ export function CheckoutPage({ userId, loyaltyTier, onBack, onOrderComplete }: C
                 />
               </div>
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-gray-300 mb-2">Address</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">כתובת</label>
                 <input
                   type="text"
                   value={shipping.address}
@@ -137,7 +137,7 @@ export function CheckoutPage({ userId, loyaltyTier, onBack, onOrderComplete }: C
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">City</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">עיר</label>
                 <input
                   type="text"
                   value={shipping.city}
@@ -146,7 +146,7 @@ export function CheckoutPage({ userId, loyaltyTier, onBack, onOrderComplete }: C
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">State</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">מיקוד</label>
                 <input
                   type="text"
                   value={shipping.state}
@@ -155,7 +155,7 @@ export function CheckoutPage({ userId, loyaltyTier, onBack, onOrderComplete }: C
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">ZIP Code</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">מיקוד</label>
                 <input
                   type="text"
                   value={shipping.zip}
@@ -164,7 +164,7 @@ export function CheckoutPage({ userId, loyaltyTier, onBack, onOrderComplete }: C
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Country</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">מדינה</label>
                 <input
                   type="text"
                   value={shipping.country}
@@ -181,12 +181,12 @@ export function CheckoutPage({ userId, loyaltyTier, onBack, onOrderComplete }: C
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                 <CreditCard className="w-5 h-5 text-primary" />
               </div>
-              <h2 className="text-2xl font-display font-bold text-white">Payment Information</h2>
+              <h2 className="text-2xl font-display font-bold text-white">פרטי תשלום</h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-gray-300 mb-2">Card Number</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">מספר כרטיס</label>
                 <input
                   type="text"
                   value={payment.card_number}
@@ -195,7 +195,7 @@ export function CheckoutPage({ userId, loyaltyTier, onBack, onOrderComplete }: C
                 />
               </div>
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-gray-300 mb-2">Name on Card</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">שם בעל הכרטיס</label>
                 <input
                   type="text"
                   value={payment.name_on_card}
@@ -204,7 +204,7 @@ export function CheckoutPage({ userId, loyaltyTier, onBack, onOrderComplete }: C
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Expiry Month</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">חודש תפוגה</label>
                 <input
                   type="text"
                   value={payment.expiry_month}
@@ -214,7 +214,7 @@ export function CheckoutPage({ userId, loyaltyTier, onBack, onOrderComplete }: C
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Expiry Year</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">שנת תפוגה</label>
                 <input
                   type="text"
                   value={payment.expiry_year}
@@ -240,7 +240,7 @@ export function CheckoutPage({ userId, loyaltyTier, onBack, onOrderComplete }: C
         {/* Order Summary */}
         <div className="lg:col-span-1">
           <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700 sticky top-24">
-            <h2 className="text-2xl font-display font-bold text-white mb-6">Order Summary</h2>
+            <h2 className="text-2xl font-display font-bold text-white mb-6">סיכום הזמנה</h2>
 
             <div className="space-y-3 mb-6">
               {cart.items.map((item) => (
@@ -252,27 +252,27 @@ export function CheckoutPage({ userId, loyaltyTier, onBack, onOrderComplete }: C
                   />
                   <div className="flex-1">
                     <p className="text-sm text-gray-300 line-clamp-1">{item.title}</p>
-                    <p className="text-xs text-gray-500">Qty: {item.quantity}</p>
+                    <p className="text-xs text-gray-500">כמות: {item.quantity}</p>
                   </div>
-                  <p className="text-sm font-semibold text-white">${item.subtotal.toFixed(2)}</p>
+                  <p className="text-sm font-semibold text-white">{item.subtotal.toFixed(2)}₪</p>
                 </div>
               ))}
             </div>
 
             <div className="border-t border-slate-700 pt-4 space-y-2 mb-6">
               <div className="flex justify-between text-gray-300">
-                <span>Subtotal</span>
-                <span>${cart.subtotal.toFixed(2)}</span>
+                <span>סכום ביניים</span>
+                <span>{cart.subtotal.toFixed(2)}₪</span>
               </div>
               {cart.discount > 0 && (
                 <div className="flex justify-between text-green-400">
-                  <span>Discount</span>
-                  <span>-${cart.discount.toFixed(2)}</span>
+                  <span>הנחה</span>
+                  <span>-{cart.discount.toFixed(2)}₪</span>
                 </div>
               )}
               <div className="flex justify-between text-lg font-bold text-white pt-2 border-t border-slate-700">
-                <span>Total</span>
-                <span className="text-primary">${cart.total.toFixed(2)}</span>
+                <span>סה״כ</span>
+                <span className="text-primary">{cart.total.toFixed(2)}₪</span>
               </div>
             </div>
 
@@ -284,10 +284,10 @@ export function CheckoutPage({ userId, loyaltyTier, onBack, onOrderComplete }: C
               {placingOrder ? (
                 <>
                   <Loader2 className="w-5 h-5 animate-spin" />
-                  Processing...
+                  מעבד...
                 </>
               ) : (
-                'Place Order'
+                'שלח הזמנה'
               )}
             </button>
           </div>

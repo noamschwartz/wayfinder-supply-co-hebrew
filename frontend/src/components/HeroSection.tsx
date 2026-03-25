@@ -39,9 +39,9 @@ export function HeroSection() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-6xl md:text-7xl font-display font-bold mb-6 leading-tight">
-              <span className="text-white">Gear Up for</span>
+              <span className="text-white">התכוננו</span>
               <br />
-              <span className="text-gradient">Your Next Adventure</span>
+              <span className="text-gradient">להרפתקה הבאה</span>
             </h1>
           </motion.div>
           
@@ -51,8 +51,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl text-gray-300 mb-8 leading-relaxed"
           >
-            AI-powered trip planning meets premium outdoor gear. Get personalized recommendations 
-            for your perfect adventure.
+            תכנון טיולים מבוסס AI משולב עם ציוד חוצות מעולה. קבלו המלצות מותאמות אישית להרפתקה המושלמת שלכם.
           </motion.p>
           
           <motion.div
@@ -65,14 +64,14 @@ export function HeroSection() {
               onClick={navigateToTripPlanner}
               className="group bg-primary hover:bg-primary-dark text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center gap-2 shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-105"
             >
-              Plan Your Adventure
+              תכננו הרפתקה
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button 
               onClick={scrollToProducts}
               className="glass text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 hover:bg-slate-800/80"
             >
-              Browse Gear
+              עיינו בציוד
             </button>
           </motion.div>
           
@@ -89,7 +88,7 @@ export function HeroSection() {
               </div>
               <div>
                 <div className="text-2xl font-display font-bold text-white">10K+</div>
-                <div className="text-sm text-gray-400">Products</div>
+                <div className="text-sm text-gray-400">מוצרים</div>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -98,7 +97,7 @@ export function HeroSection() {
               </div>
               <div>
                 <div className="text-2xl font-display font-bold text-white">500+</div>
-                <div className="text-sm text-gray-400">Destinations</div>
+                <div className="text-sm text-gray-400">יעדים</div>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -107,7 +106,7 @@ export function HeroSection() {
               </div>
               <div>
                 <div className="text-2xl font-display font-bold text-white">24/7</div>
-                <div className="text-sm text-gray-400">AI Support</div>
+                <div className="text-sm text-gray-400">תמיכת AI</div>
               </div>
             </div>
           </motion.div>

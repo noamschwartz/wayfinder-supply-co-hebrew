@@ -96,12 +96,12 @@ export function OrderConfirmation({ userId, confirmationNumber, onContinueShoppi
         <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-green-500/20 flex items-center justify-center">
           <CheckCircle2 className="w-12 h-12 text-green-400" />
         </div>
-        <h1 className="text-4xl font-display font-bold text-white mb-4">Order Confirmed!</h1>
+        <h1 className="text-4xl font-display font-bold text-white mb-4">!ההזמנה אושרה</h1>
         <p className="text-gray-400 text-lg">
-          Your order has been placed successfully
+          ההזמנה שלכם בוצעה בהצלחה
         </p>
         <div className="mt-6 bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-slate-700 inline-block">
-          <p className="text-sm text-gray-400 mb-2">Order Number</p>
+          <p className="text-sm text-gray-400 mb-2">מספר הזמנה</p>
           <p className="text-2xl font-display font-bold text-primary">{confirmationNumber}</p>
         </div>
       </motion.div>
@@ -109,7 +109,7 @@ export function OrderConfirmation({ userId, confirmationNumber, onContinueShoppi
       {/* Order Items */}
       {cart && cart.items.length > 0 && (
         <div className="space-y-6 mb-12">
-          <h2 className="text-2xl font-display font-bold text-white mb-6">Order Items</h2>
+          <h2 className="text-2xl font-display font-bold text-white mb-6">פריטי ההזמנה</h2>
           {cart.items.map((item) => {
             const review = reviews[item.product_id] || { rating: 0, title: '', text: '' }
             const hasReview = reviews[item.product_id] !== undefined
@@ -129,19 +129,19 @@ export function OrderConfirmation({ userId, confirmationNumber, onContinueShoppi
                   />
                   <div className="flex-1">
                     <h3 className="text-xl font-display font-semibold text-white mb-1">{item.title}</h3>
-                    <p className="text-gray-400">Quantity: {item.quantity}</p>
-                    <p className="text-lg font-semibold text-primary mt-2">${item.subtotal.toFixed(2)}</p>
+                    <p className="text-gray-400">כמות: {item.quantity}</p>
+                    <p className="text-lg font-semibold text-primary mt-2">₪{item.subtotal.toFixed(2)}</p>
                   </div>
                 </div>
 
                 {/* Review Form */}
                 {!hasReview ? (
                   <div className="border-t border-slate-700 pt-6">
-                    <h3 className="text-lg font-display font-semibold text-white mb-4">Write a Review</h3>
+                    <h3 className="text-lg font-display font-semibold text-white mb-4">כתבו ביקורת</h3>
                     
                     {/* Star Rating */}
                     <div className="mb-4">
-                      <label className="block text-sm font-medium text-gray-300 mb-2">Rating</label>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">דירוג</label>
                       <div className="flex items-center gap-2">
                         {[1, 2, 3, 4, 5].map((star) => (
                           <button
@@ -159,30 +159,30 @@ export function OrderConfirmation({ userId, confirmationNumber, onContinueShoppi
                           </button>
                         ))}
                         {review.rating > 0 && (
-                          <span className="text-sm text-gray-400 ml-2">{review.rating} stars</span>
+                          <span className="text-sm text-gray-400 ml-2">{review.rating} כוכבים</span>
                         )}
                       </div>
                     </div>
 
                     {/* Review Title */}
                     <div className="mb-4">
-                      <label className="block text-sm font-medium text-gray-300 mb-2">Review Title</label>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">כותרת הביקורת</label>
                       <input
                         type="text"
                         value={review.title}
                         onChange={(e) => handleReviewChange(item.product_id, 'title', e.target.value)}
-                        placeholder="Summarize your experience"
+                        placeholder="סכמו את החוויה שלכם"
                         className="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary"
                       />
                     </div>
 
                     {/* Review Text */}
                     <div className="mb-4">
-                      <label className="block text-sm font-medium text-gray-300 mb-2">Your Review</label>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">הביקורת שלכם</label>
                       <textarea
                         value={review.text}
                         onChange={(e) => handleReviewChange(item.product_id, 'text', e.target.value)}
-                        placeholder="Share your thoughts about this product..."
+                        placeholder="שתפו את המחשבות שלכם על המוצר..."
                         rows={4}
                         className="w-full bg-slate-900 border border-slate-600 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                       />
@@ -197,10 +197,10 @@ export function OrderConfirmation({ userId, confirmationNumber, onContinueShoppi
                       {submitting.has(item.product_id) ? (
                         <>
                           <Loader2 className="w-4 h-4 animate-spin" />
-                          Submitting...
+                          שולח...
                         </>
                       ) : (
-                        'Submit Review'
+                        'שלח ביקורת'
                       )}
                     </button>
                   </div>
@@ -208,7 +208,7 @@ export function OrderConfirmation({ userId, confirmationNumber, onContinueShoppi
                   <div className="border-t border-slate-700 pt-6">
                     <div className="flex items-center gap-2 text-green-400">
                       <CheckCircle2 className="w-5 h-5" />
-                      <span className="font-medium">Review submitted!</span>
+                      <span className="font-medium">!הביקורת נשלחה</span>
                     </div>
                   </div>
                 )}
@@ -218,14 +218,14 @@ export function OrderConfirmation({ userId, confirmationNumber, onContinueShoppi
         </div>
       )}
 
-      {/* Continue Shopping */}
+      {/* המשך קניות */}
       <div className="text-center">
         <button
           onClick={onContinueShopping}
           className="bg-primary hover:bg-primary-dark text-white font-semibold py-4 px-8 rounded-xl transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 flex items-center gap-2 mx-auto"
         >
           <ShoppingBag className="w-5 h-5" />
-          Continue Shopping
+          המשך קניות
         </button>
       </div>
     </div>

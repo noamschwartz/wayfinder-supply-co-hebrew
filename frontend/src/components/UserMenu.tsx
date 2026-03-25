@@ -144,7 +144,7 @@ export function UserMenu({ currentUserId, currentPersona, onSwitchUser, onClearH
                     disabled={currentUserId !== 'user_new' || displayViews === 0}
                     className="bg-slate-900/50 rounded-lg p-2 border border-slate-700/30 hover:border-slate-600/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer text-left"
                   >
-                    <div className="text-xs text-gray-400 mb-0.5">Views</div>
+                    <div className="text-xs text-gray-400 mb-0.5">צפיות</div>
                     <div className="text-lg font-bold text-white">{displayViews}</div>
                   </button>
                   <button
@@ -155,7 +155,7 @@ export function UserMenu({ currentUserId, currentPersona, onSwitchUser, onClearH
                     disabled={currentUserId !== 'user_new' || displayCartAdds === 0}
                     className="bg-slate-900/50 rounded-lg p-2 border border-slate-700/30 hover:border-slate-600/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer text-left"
                   >
-                    <div className="text-xs text-gray-400 mb-0.5">Cart Adds</div>
+                    <div className="text-xs text-gray-400 mb-0.5">הוספות לעגלה</div>
                     <div className="text-lg font-bold text-primary">{displayCartAdds}</div>
                   </button>
                 </div>
@@ -172,7 +172,7 @@ export function UserMenu({ currentUserId, currentPersona, onSwitchUser, onClearH
                 >
                   <Trash2 className="w-4 h-4" />
                   <span className="text-sm font-medium">
-                    {clearing ? 'Clearing...' : 'Clear Browsing History'}
+                    {clearing ? 'מנקה...' : 'נקה היסטוריית גלישה'}
                   </span>
                 </button>
               </div>
@@ -187,7 +187,7 @@ export function UserMenu({ currentUserId, currentPersona, onSwitchUser, onClearH
                 }}
                 className="w-full px-4 py-3 rounded-lg flex items-center justify-between bg-primary/20 hover:bg-primary/30 text-primary transition-all border border-primary/30 group"
               >
-                <span className="text-sm font-medium">Switch User</span>
+                <span className="text-sm font-medium">החלף משתמש</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
@@ -199,7 +199,7 @@ export function UserMenu({ currentUserId, currentPersona, onSwitchUser, onClearH
       <ClickstreamEventsModal
         userId={currentUserId}
         action={eventsType}
-        title={eventsType === 'view_item' ? 'Product Views' : 'Cart Additions'}
+        title={eventsType === 'view_item' ? 'צפיות במוצרים' : 'הוספות לעגלה'}
         isOpen={eventsModalOpen}
         onClose={() => setEventsModalOpen(false)}
       />

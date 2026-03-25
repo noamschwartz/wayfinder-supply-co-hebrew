@@ -127,8 +127,8 @@ export function CartView({ userId, loyaltyTier }: CartViewProps) {
     return (
       <div className="bg-white rounded-2xl border border-slate-200 shadow-lg p-12 text-center">
         <ShoppingBag className="w-20 h-20 text-slate-300 mx-auto mb-4" />
-        <h3 className="text-2xl font-display font-bold text-slate-900 mb-2">Your cart is empty</h3>
-        <p className="text-slate-600">Add some products to get started on your adventure!</p>
+        <h3 className="text-2xl font-display font-bold text-slate-900 mb-2">העגלה ריקה</h3>
+        <p className="text-slate-600">הוסיפו מוצרים כדי להתחיל בהרפתקה!</p>
       </div>
     )
   }
@@ -140,10 +140,10 @@ export function CartView({ userId, loyaltyTier }: CartViewProps) {
         <div className="bg-gradient-to-r from-primary/10 to-primary/5 border-b border-slate-200 px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              <h2 className="text-3xl font-display font-bold text-slate-900">Shopping Cart</h2>
+              <h2 className="text-3xl font-display font-bold text-slate-900">עגלת קניות</h2>
               {usingMockData && (
                 <span className="bg-amber-100 text-amber-800 text-xs font-medium px-3 py-1 rounded-full">
-                  Demo Mode
+                  מצב הדגמה
                 </span>
               )}
             </div>
@@ -151,7 +151,7 @@ export function CartView({ userId, loyaltyTier }: CartViewProps) {
               onClick={handleClearCart}
               className="text-sm text-red-600 hover:text-red-700 font-medium transition-colors"
             >
-              Clear Cart
+              נקה עגלה
             </button>
           </div>
         </div>
@@ -164,7 +164,7 @@ export function CartView({ userId, loyaltyTier }: CartViewProps) {
                 <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                   <Sparkles className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="font-display font-bold text-lg text-primary">Loyalty Perks</h3>
+                <h3 className="font-display font-bold text-lg text-primary">הטבות נאמנות</h3>
               </div>
               <ul className="space-y-2">
                 {cart.loyalty_perks.map((perk, index) => (
@@ -199,7 +199,7 @@ export function CartView({ userId, loyaltyTier }: CartViewProps) {
                 >
                   <h3 className="font-display font-semibold text-lg text-slate-900 mb-1 hover:text-primary transition-colors">{item.title}</h3>
                   <p className="text-sm text-slate-600">
-                    ${item.price.toFixed(2)} each
+                    {item.price.toFixed(2)}₪ ליחידה
                   </p>
                 </div>
                 <div className="flex items-center gap-3">
@@ -234,7 +234,7 @@ export function CartView({ userId, loyaltyTier }: CartViewProps) {
                     </button>
                   </div>
                   <div className="text-right min-w-[100px]">
-                    <p className="text-xl font-display font-bold text-slate-900">${item.subtotal.toFixed(2)}</p>
+                    <p className="text-xl font-display font-bold text-slate-900">{item.subtotal.toFixed(2)}₪</p>
                   </div>
                   <button
                     onClick={(e) => {
@@ -253,18 +253,18 @@ export function CartView({ userId, loyaltyTier }: CartViewProps) {
           {/* Summary */}
           <div className="border-t-2 border-slate-200 pt-6 space-y-3">
             <div className="flex justify-between text-slate-600">
-              <span className="font-medium">Subtotal</span>
-              <span className="font-semibold">${cart.subtotal.toFixed(2)}</span>
+              <span className="font-medium">סכום ביניים</span>
+              <span className="font-semibold">{cart.subtotal.toFixed(2)}₪</span>
             </div>
             {cart.discount > 0 && (
               <div className="flex justify-between text-green-600">
-                <span className="font-medium">Discount</span>
-                <span className="font-semibold">-${cart.discount.toFixed(2)}</span>
+                <span className="font-medium">הנחה</span>
+                <span className="font-semibold">-{cart.discount.toFixed(2)}₪</span>
               </div>
             )}
             <div className="flex justify-between text-2xl font-display font-bold pt-3 border-t-2 border-slate-200">
-              <span className="text-slate-900">Total</span>
-              <span className="text-gradient">${cart.total.toFixed(2)}</span>
+              <span className="text-slate-900">סה״כ</span>
+              <span className="text-gradient">{cart.total.toFixed(2)}₪</span>
             </div>
             <button 
               onClick={() => {
@@ -273,7 +273,7 @@ export function CartView({ userId, loyaltyTier }: CartViewProps) {
               }}
               className="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-4 px-6 rounded-xl transition-all shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-[1.02] mt-6"
             >
-              Proceed to Checkout
+              המשך לתשלום
             </button>
           </div>
         </div>

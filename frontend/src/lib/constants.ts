@@ -1,46 +1,45 @@
 export const TOOL_STATUS_MESSAGES: Record<string, string> = {
-  'tool-workflow-check-trip-safety': 'Checking weather conditions...',
-  'tool-workflow-get-customer-profile': 'Looking up your preferences...',
-  'tool-search-product-search': 'Scanning the catalog...',
-  'tool-esql-get-user-affinity': 'Reviewing your browsing history...',
+  'tool-workflow-check-trip-safety': 'בודק תנאי מזג אוויר...',
+  'tool-workflow-get-customer-profile': 'מחפש את ההעדפות שלכם...',
+  'tool-search-product-search': 'סורק את הקטלוג...',
+  'tool-esql-get-user-affinity': 'בודק היסטוריית גלישה...',
 };
 
 export function getToolStatusMessage(toolId: string): string {
-  return TOOL_STATUS_MESSAGES[toolId] || 'Planning your adventure...';
+  return TOOL_STATUS_MESSAGES[toolId] || 'מתכנן את ההרפתקה שלכם...';
 }
 
 export const NARRATION_MESSAGES: Record<string, { message: string; icon: string }> = {
   'lexical_search': {
-    message: 'Searching with BM25 keyword matching...',
+    message: 'מחפש עם BM25 (התאמת מילות מפתח)...',
     icon: '🔍'
   },
   'hybrid_search': {
-    message: 'Combining semantic + keyword search...',
+    message: 'משלב חיפוש סמנטי + מילות מפתח...',
     icon: '🧠'
   },
   'agent_start': {
-    message: 'AI Agent analyzing your request...',
+    message: 'סוכן AI מנתח את הבקשה שלכם...',
     icon: '🤖'
   },
   'tool_weather': {
-    message: 'Checking weather conditions...',
+    message: 'בודק תנאי מזג אוויר...',
     icon: '🌤️'
   },
   'tool_profile': {
-    message: 'Looking up customer profile...',
+    message: 'מחפש פרופיל לקוח...',
     icon: '👤'
   },
   'tool_search': {
-    message: 'Searching product catalog...',
+    message: 'מחפש בקטלוג מוצרים...',
     icon: '📦'
   },
   'tool_affinity': {
-    message: 'Analyzing browsing preferences...',
+    message: 'מנתח העדפות גלישה...',
     icon: '📊'
   },
   'personalized': {
-    message: 'Results personalized for your style!',
+    message: '!תוצאות מותאמות אישית לסגנון שלכם',
     icon: '✨'
   },
 }
-

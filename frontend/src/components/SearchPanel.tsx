@@ -672,7 +672,7 @@ export function SearchPanel({
               )}
               {/* Header */}
               <div className="flex items-center justify-between p-4 border-b border-slate-700">
-                <h2 className="text-xl font-display font-bold text-white">Search & Chat</h2>
+                <h2 className="text-xl font-display font-bold text-white">חיפוש וצ׳אט</h2>
                 <div className="flex items-center gap-2">
                   {/* New Session Button - shows when there's content */}
                   {(messages.length > 0 || searchResults.length > 0) && !isDemoRunning && (
@@ -687,7 +687,7 @@ export function SearchPanel({
                       className="px-3 py-1.5 text-sm bg-pink-600/20 hover:bg-pink-600/30 text-pink-400 border border-pink-600/30 rounded-lg transition-all flex items-center gap-1.5"
                     >
                       <Plus className="w-4 h-4" />
-                      <span className="hidden sm:inline">New Session</span>
+                      <span className="hidden sm:inline">שיחה חדשה</span>
                     </button>
                   )}
                   {/* Personalization Toggle */}
@@ -698,10 +698,10 @@ export function SearchPanel({
                         ? 'bg-green-600 text-white shadow-md shadow-green-500/30'
                         : 'bg-slate-700 text-gray-400 hover:bg-slate-600'
                     }`}
-                    title={personalizationEnabled ? 'Personalization ON' : 'Personalization OFF'}
+                    title={personalizationEnabled ? 'התאמה אישית פעילה' : 'התאמה אישית כבויה'}
                   >
                     <Target className={`w-4 h-4 ${personalizationEnabled ? 'animate-pulse' : ''}`} />
-                    <span className="hidden sm:inline">{personalizationEnabled ? 'Personal' : 'Generic'}</span>
+                    <span className="hidden sm:inline">{personalizationEnabled ? 'אישי' : 'כללי'}</span>
                   </button>
                   {/* Watch This Demo Button */}
                   <button
@@ -714,7 +714,7 @@ export function SearchPanel({
                     disabled={isDemoRunning}
                     className="px-3 py-1.5 text-sm bg-purple-600 hover:bg-purple-700 disabled:opacity-50 rounded-lg transition-colors flex items-center gap-1.5 text-white"
                   >
-                    <Zap className="w-4 h-4" /> Watch This
+                    <Zap className="w-4 h-4" /> צפו בזה
                   </button>
                   <button
                     onClick={onClose}
@@ -742,7 +742,7 @@ export function SearchPanel({
                         mode === 'chat' ? 'bg-primary text-white shadow-md' : 'text-gray-400 hover:text-white hover:bg-slate-700'
                       }`}
                     >
-                      <MessageSquare className="w-4 h-4" /> Chat
+                      <MessageSquare className="w-4 h-4" /> צ׳אט
                     </button>
                     <button
                       onClick={() => { 
@@ -757,7 +757,7 @@ export function SearchPanel({
                         mode === 'hybrid' ? 'bg-cyan-600 text-white shadow-md' : 'text-gray-400 hover:text-white hover:bg-slate-700'
                       }`}
                     >
-                      <Search className="w-4 h-4" /> Hybrid
+                      <Search className="w-4 h-4" /> היברידי
                     </button>
                     <button
                       onClick={() => { 
@@ -772,7 +772,7 @@ export function SearchPanel({
                         mode === 'lexical' ? 'bg-amber-600 text-white shadow-md' : 'text-gray-400 hover:text-white hover:bg-slate-700'
                       }`}
                     >
-                      <BookOpen className="w-4 h-4" /> Lexical
+                      <BookOpen className="w-4 h-4" /> לקסיקלי
                     </button>
                   </div>
                 </div>
@@ -856,7 +856,7 @@ export function SearchPanel({
                       type="text"
                       value={input}
                       onChange={(e) => setInput(e.target.value)}
-                      placeholder={mode === 'chat' ? "Ask about gear or your trip..." : "Search for products..."}
+                      placeholder={mode === 'chat' ? "שאלו על ציוד או על הטיול שלכם..." : "חפשו מוצרים..."}
                       className="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
                       disabled={isLoading}
                     />
