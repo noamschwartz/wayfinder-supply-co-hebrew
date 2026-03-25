@@ -133,6 +133,47 @@ def index_reviews(reviews_path):
     es.indices.refresh(index="product-reviews")
 
 
+TAG_MAP = {
+    "expedition": "משלחת",
+    "family": "משפחתי",
+    "professional": "מקצועי",
+    "budget": "חסכוני",
+    "ultralight": "אולטרלייט",
+    "sustainable": "ירוק",
+}
+
+
+def translate_clickstream_tags():
+    """Translate meta_tags in user-clickstream index from English to Hebrew."""
+    print("\n=== Translating clickstream meta_tags ===")
+
+    # Use painless script to translate tags in-place
+    for en_tag, he_tag in TAG_MAP.items():
+        resp = es.update_by_query(
+            index="user-clickstream",
+            query={"term": {"meta_tags": en_tag}},
+            script={
+                "source": """
+                    if (ctx._source.meta_tags != null) {
+                        for (int i = 0; i < ctx._source.meta_tags.size(); i++) {
+                            if (ctx._source.meta_tags[i] == params.old_tag) {
+                                ctx._source.meta_tags[i] = params.new_tag;
+                            }
+                        }
+                    }
+                """,
+                "params": {"old_tag": en_tag, "new_tag": he_tag},
+            },
+            conflicts="proceed",
+        )
+        updated = resp.get("updated", 0)
+        if updated > 0:
+            print(f"  {en_tag} → {he_tag}: {updated} docs")
+
+    es.indices.refresh(index="user-clickstream")
+    print("  ✓ Clickstream tags translated")
+
+
 def verify():
     """Check first product title."""
     resp = es.search(index="product-catalog", size=1, query={"match_all": {}})
@@ -159,6 +200,9 @@ def main():
     if os.path.exists(REVIEWS_PATH):
         if fix_and_recreate_index("product-reviews"):
             index_reviews(REVIEWS_PATH)
+
+    # Translate clickstream tags
+    translate_clickstream_tags()
 
     # Verify
     is_hebrew = verify()
