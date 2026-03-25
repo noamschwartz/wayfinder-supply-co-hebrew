@@ -193,7 +193,7 @@ function App() {
 
   // Handle opening chat with context from product tags
   const handleStartChatWithContext = (productName: string, tag: string) => {
-    setChatInitialMessage(`I'm looking at the **${productName}** and I'm interested in other **${tag}** gear. What do you recommend?`)
+    setChatInitialMessage(`אני מעיין ב-**${productName}** ומחפש ציוד **${tag}** נוסף. מה תמליצו?`)
     setSearchPanelOpen(true)
   }
 
