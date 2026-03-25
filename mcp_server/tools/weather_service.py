@@ -120,6 +120,7 @@ def detect_likely_region(query: str) -> Optional[str]:
     query_lower = query.lower()
     
     region_keywords = {
+        "Israel": ["israel", "ישראל", "נגב", "גליל", "גולן", "כרמל", "אילת", "ירושלים", "תל אביב", "חיפה", "ים המלח", "ערבה", "חרמון", "כנרת", "מכתש", "תמנע"],
         "North America": ["usa", "united states", "america", "canada", "canadian", "alaska", "california", "colorado", "utah", "arizona", "montana", "wyoming"],
         "South America": ["south america", "brazil", "argentina", "chile", "peru", "bolivia", "patagonia", "amazon", "andes"],
         "Central America": ["central america", "costa rica", "panama", "belize", "guatemala", "mexico"],
@@ -127,7 +128,7 @@ def detect_likely_region(query: str) -> Optional[str]:
         "Africa": ["africa", "african", "kenya", "tanzania", "south africa", "morocco", "egypt", "kilimanjaro", "sahara", "safari"],
         "Asia": ["asia", "asian", "japan", "japanese", "nepal", "himalaya", "china", "chinese", "india", "indian", "thailand", "vietnam", "indonesia", "bali", "singapore"],
         "Oceania": ["australia", "australian", "new zealand", "nz", "kiwi", "fiji", "pacific", "outback", "queensland"],
-        "Middle East": ["middle east", "jordan", "israel", "dubai", "uae", "emirates", "saudi", "oman", "qatar"]
+        "Middle East": ["middle east", "jordan", "dubai", "uae", "emirates", "saudi", "oman", "qatar"]
     }
     
     for region, keywords in region_keywords.items():
@@ -152,20 +153,20 @@ def parse_month_from_dates(dates: str) -> int:
     if iso_match:
         return int(iso_match.group(2))
     
-    # Try month name
+    # Try month name (English and Hebrew)
     month_names = {
-        "january": 1, "jan": 1,
-        "february": 2, "feb": 2,
-        "march": 3, "mar": 3,
-        "april": 4, "apr": 4,
-        "may": 5,
-        "june": 6, "jun": 6,
-        "july": 7, "jul": 7,
-        "august": 8, "aug": 8,
-        "september": 9, "sep": 9, "sept": 9,
-        "october": 10, "oct": 10,
-        "november": 11, "nov": 11,
-        "december": 12, "dec": 12
+        "january": 1, "jan": 1, "ינואר": 1,
+        "february": 2, "feb": 2, "פברואר": 2,
+        "march": 3, "mar": 3, "מרץ": 3, "מרס": 3,
+        "april": 4, "apr": 4, "אפריל": 4,
+        "may": 5, "מאי": 5,
+        "june": 6, "jun": 6, "יוני": 6,
+        "july": 7, "jul": 7, "יולי": 7,
+        "august": 8, "aug": 8, "אוגוסט": 8,
+        "september": 9, "sep": 9, "sept": 9, "ספטמבר": 9,
+        "october": 10, "oct": 10, "אוקטובר": 10,
+        "november": 11, "nov": 11, "נובמבר": 11,
+        "december": 12, "dec": 12, "דצמבר": 12
     }
     
     dates_lower = dates.lower()
@@ -177,15 +178,10 @@ def parse_month_from_dates(dates: str) -> int:
     return datetime.now().month
 
 
-def celsius_to_fahrenheit(c: float) -> int:
-    """Convert Celsius to Fahrenheit."""
-    return int((c * 9/5) + 32)
-
-
 def generate_conditions_from_patterns(location: Dict, season: str) -> Dict:
     """Generate weather conditions from location's weather patterns."""
     patterns = location.get("weather_patterns", {}).get(season, {})
-    
+
     if not patterns:
         # Default patterns
         patterns = {
@@ -193,53 +189,55 @@ def generate_conditions_from_patterns(location: Dict, season: str) -> Dict:
             "conditions": ["variable"],
             "precipitation_chance": 0.3
         }
-    
+
     temp_range = patterns.get("temp_range", [10, 25])
     conditions = patterns.get("conditions", ["variable"])
     precip_chance = patterns.get("precipitation_chance", 0.3)
-    
-    # Convert temps to Fahrenheit
-    min_temp_f = celsius_to_fahrenheit(temp_range[0])
-    max_temp_f = celsius_to_fahrenheit(temp_range[1])
-    
+
+    # Temperatures already in Celsius
+    min_temp_c = temp_range[0]
+    max_temp_c = temp_range[1]
+
     # Generate weather description
     weather_desc = conditions[0] if conditions else "variable"
-    
+
     # Generate road alerts based on conditions
     road_alert = "none"
-    if "snow" in conditions:
-        road_alert = "snow_possible"
-    elif "extreme heat" in conditions:
-        road_alert = "heat_advisory"
-    elif "monsoon" in conditions or "rain" in conditions:
-        road_alert = "wet_conditions"
-    elif "wind" in conditions or "windy" in conditions:
-        road_alert = "high_winds"
-    
+    conditions_lower = [c.lower() for c in conditions]
+    conditions_str = " ".join(conditions_lower)
+    if "snow" in conditions_str or "שלג" in conditions_str:
+        road_alert = "שלג_אפשרי"
+    elif "extreme heat" in conditions_str or "חום קיצוני" in conditions_str or "חם מאוד" in conditions_str:
+        road_alert = "אזהרת_חום"
+    elif "monsoon" in conditions_str or "rain" in conditions_str or "גשום" in conditions_str:
+        road_alert = "תנאים_רטובים"
+    elif "wind" in conditions_str or "windy" in conditions_str or "רוחות" in conditions_str:
+        road_alert = "רוחות_חזקות"
+
     # Generate recommendations based on conditions and activities
     recommendations = []
     season_activities = location.get("activities", {}).get(season, [])
-    
-    if "snow" in conditions or "cold" in conditions:
-        recommendations.append("Pack cold-weather gear and layers")
-    if "rain" in conditions or precip_chance > 0.4:
-        recommendations.append("Waterproof gear essential")
-    if "hot" in conditions or "extreme heat" in conditions:
-        recommendations.append("Carry extra water and sun protection")
-        recommendations.append("Plan activities for early morning or evening")
-    if "wind" in conditions or "windy" in conditions:
-        recommendations.append("Secure tent and gear for high winds")
-    
+
+    if "snow" in conditions_str or "cold" in conditions_str or "שלג" in conditions_str or "קר" in conditions_str:
+        recommendations.append("ארזו ציוד לקור ושכבות ביגוד")
+    if "rain" in conditions_str or "גשום" in conditions_str or precip_chance > 0.4:
+        recommendations.append("ציוד עמיד במים חיוני")
+    if "hot" in conditions_str or "extreme heat" in conditions_str or "חם" in conditions_str:
+        recommendations.append("קחו מים מרובים והגנה מהשמש")
+        recommendations.append("תכננו פעילויות לשעות הבוקר המוקדמות או הערב")
+    if "wind" in conditions_str or "windy" in conditions_str or "רוחות" in conditions_str:
+        recommendations.append("אבטחו את האוהל והציוד מפני רוחות")
+
     if season_activities:
-        recommendations.append(f"Popular activities: {', '.join(season_activities[:3])}")
-    
+        recommendations.append(f"פעילויות מומלצות: {', '.join(season_activities[:3])}")
+
     if not recommendations:
-        recommendations.append("Check local conditions before departure")
-    
+        recommendations.append("בדקו תנאים מקומיים לפני היציאה")
+
     return {
         "weather": weather_desc,
-        "min_temp_f": min_temp_f,
-        "max_temp_f": max_temp_f,
+        "min_temp_c": min_temp_c,
+        "max_temp_c": max_temp_c,
         "road_alert": road_alert,
         "precipitation_chance": precip_chance,
         "recommendations": recommendations
@@ -288,10 +286,10 @@ def get_trip_conditions(location: str, dates: str) -> Dict:
         if likely_region:
             alternatives = get_alternatives_for_region(likely_region)
         
-        # If no region-specific alternatives, provide global popular options
+        # If no region-specific alternatives, provide popular options (Israeli first)
         if not alternatives:
             locations = load_locations()
-            popular = ["yosemite", "banff", "swiss-alps", "nz-south-island", "costa-rica"]
+            popular = ["makhtesh-ramon", "hermon", "ein-gedi", "banff", "swiss-alps"]
             for loc in locations["locations"]:
                 if loc["id"] in popular:
                     alternatives.append({
@@ -300,14 +298,14 @@ def get_trip_conditions(location: str, dates: str) -> Dict:
                         "country": loc.get("country", ""),
                         "activities": loc.get("activities", {})
                     })
-        
+
         return {
             "covered": False,
             "queried_location": location,
             "likely_region": likely_region,
-            "message": f"Wayfinder doesn't have detailed coverage for '{location}' yet, but we're constantly expanding!",
+            "message": f"ל-Wayfinder אין עדיין כיסוי מפורט ל-'{location}', אבל אנחנו כל הזמן מתרחבים!",
             "alternatives": alternatives,
-            "suggestion": "Would you like me to help plan for one of these covered destinations instead? Or I can provide general guidance based on typical conditions."
+            "suggestion": "רוצה שאעזור לתכנן לאחד מהיעדים המכוסים שלנו? או שאוכל לתת הכוונה כללית לפי תנאים אופייניים."
         }
 
 

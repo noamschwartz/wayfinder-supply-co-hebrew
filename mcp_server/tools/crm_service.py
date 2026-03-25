@@ -17,7 +17,7 @@ def get_customer_profile(user_id: str, crm_data_path: str) -> Dict:
         # Return default new user profile
         return {
             "user_id": user_id,
-            "name": "Unknown User",
+            "name": "משתמש לא מזוהה",
             "email": f"{user_id}@example.com",
             "loyalty_tier": "none",
             "account_type": "individual",

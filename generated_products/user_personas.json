@@ -1,34 +1,34 @@
 [
   {
     "id": "ultralight_backpacker_sarah",
-    "name": "Sarah Martinez",
+    "name": "שרה כהן",
     "avatar_color": "from-teal-500 to-cyan-500",
-    "story": "Planning a 3-week Pacific Crest Trail thru-hike",
+    "story": "מתכננת טרק של 3 שבועות בשביל ישראל",
     "sessions": [
       {
-        "goal": "Research ultralight shelter options",
-        "timeframe": "3 days ago",
+        "goal": "מחקר אוהלים קלי משקל",
+        "timeframe": "לפני 3 ימים",
         "item_count": 4,
         "categories": [
-          "Tents",
-          "Tarps"
+          "אוהלים",
+          "טרפולינים"
         ]
       },
       {
-        "goal": "Find lightweight sleep system",
-        "timeframe": "2 days ago",
+        "goal": "חיפוש מערכת שינה קלה",
+        "timeframe": "לפני יומיים",
         "item_count": 5,
         "categories": [
-          "Sleeping Bags",
-          "Pads"
+          "שקי שינה",
+          "מזרונים"
         ]
       },
       {
-        "goal": "Browse backpacks and organization",
-        "timeframe": "1 days ago",
+        "goal": "עיון בתיקי גב וארגון ציוד",
+        "timeframe": "אתמול",
         "item_count": 13,
         "categories": [
-          "Backpacks"
+          "תיקי גב"
         ]
       }
     ],
@@ -37,34 +37,34 @@
   },
   {
     "id": "family_camper_mike",
-    "name": "Mike Chen",
+    "name": "מיקי לוי",
     "avatar_color": "from-amber-500 to-orange-500",
-    "story": "Getting gear for weekend family camping trips",
+    "story": "מחפש ציוד לקמפינג משפחתי בסופי שבוע",
     "sessions": [
       {
-        "goal": "Find a spacious family tent",
-        "timeframe": "5 days ago",
+        "goal": "חיפוש אוהל משפחתי מרווח",
+        "timeframe": "לפני 5 ימים",
         "item_count": 1,
         "categories": [
-          "Tents"
+          "אוהלים"
         ]
       },
       {
-        "goal": "Camp kitchen and cooking gear",
-        "timeframe": "3 days ago",
+        "goal": "מטבח שטח וציוד בישול",
+        "timeframe": "לפני 3 ימים",
         "item_count": 10,
         "categories": [
-          "Stoves",
-          "Cookware"
+          "כיריים",
+          "כלי בישול"
         ]
       },
       {
-        "goal": "Sleeping arrangements for family",
-        "timeframe": "1 days ago",
+        "goal": "פתרונות שינה למשפחה",
+        "timeframe": "אתמול",
         "item_count": 1,
         "categories": [
-          "Sleeping Bags",
-          "Pads"
+          "שקי שינה",
+          "מזרונים"
         ]
       }
     ],
@@ -73,34 +73,34 @@
   },
   {
     "id": "winter_mountaineer_alex",
-    "name": "Alex Thompson",
+    "name": "אלכס תומפסון",
     "avatar_color": "from-blue-500 to-indigo-500",
-    "story": "Preparing for winter alpine climbing season",
+    "story": "מתכונן לעונת טיפוס חורפי באלפים",
     "sessions": [
       {
-        "goal": "Upgrade 4-season tent for alpine conditions",
-        "timeframe": "7 days ago",
+        "goal": "שדרוג אוהל 4 עונות לתנאי אלפיין",
+        "timeframe": "לפני שבוע",
         "item_count": 3,
         "categories": [
-          "Tents"
+          "אוהלים"
         ]
       },
       {
-        "goal": "Cold weather sleep system",
-        "timeframe": "5 days ago",
+        "goal": "מערכת שינה לקור קיצוני",
+        "timeframe": "לפני 5 ימים",
         "item_count": 2,
         "categories": [
-          "Sleeping Bags",
-          "Pads"
+          "שקי שינה",
+          "מזרונים"
         ]
       },
       {
-        "goal": "Technical climbing gear",
-        "timeframe": "2 days ago",
+        "goal": "ציוד טיפוס טכני",
+        "timeframe": "לפני יומיים",
         "item_count": 9,
         "categories": [
-          "Backpacks",
-          "Accessories"
+          "תיקי גב",
+          "אביזרים"
         ]
       }
     ],
@@ -109,26 +109,26 @@
   },
   {
     "id": "weekend_hiker_emma",
-    "name": "Emma Wilson",
+    "name": "עמה וילסון",
     "avatar_color": "from-green-500 to-emerald-500",
-    "story": "New to hiking, building out day hike essentials",
+    "story": "חדשה בטיולים, בונה ערכת ציוד בסיסית",
     "sessions": [
       {
-        "goal": "Day hiking essentials research",
-        "timeframe": "4 days ago",
+        "goal": "מחקר ציוד בסיסי לטיולי יום",
+        "timeframe": "לפני 4 ימים",
         "item_count": 14,
         "categories": [
-          "Backpacks",
-          "Hydration"
+          "תיקי גב",
+          "שתייה"
         ]
       },
       {
-        "goal": "Revisit favorites from previous session",
-        "timeframe": "1 days ago",
+        "goal": "חזרה למועדפים מהביקור הקודם",
+        "timeframe": "אתמול",
         "item_count": 3,
         "categories": [
-          "Backpacks",
-          "Water Filters"
+          "תיקי גב",
+          "מסנני מים"
         ]
       }
     ],
@@ -137,26 +137,26 @@
   },
   {
     "id": "car_camper_david",
-    "name": "David Park",
+    "name": "דוד פארק",
     "avatar_color": "from-purple-500 to-pink-500",
-    "story": "Car camping enthusiast, prioritizes comfort and luxury",
+    "story": "חובב קמפינג רכב, מעדיף נוחות ופינוק",
     "sessions": [
       {
-        "goal": "Luxury camping gear upgrade",
-        "timeframe": "6 days ago",
+        "goal": "שדרוג ציוד קמפינג יוקרתי",
+        "timeframe": "לפני 6 ימים",
         "item_count": 8,
         "categories": [
-          "Tents",
-          "Sleeping Bags"
+          "אוהלים",
+          "שקי שינה"
         ]
       },
       {
-        "goal": "Comfort accessories and amenities",
-        "timeframe": "3 days ago",
+        "goal": "אביזרי נוחות ופינוק",
+        "timeframe": "לפני 3 ימים",
         "item_count": 9,
         "categories": [
-          "Accessories",
-          "Cookware"
+          "אביזרים",
+          "כלי בישול"
         ]
       }
     ],
@@ -165,26 +165,26 @@
   },
   {
     "id": "user_new",
-    "name": "Guest User",
+    "name": "אורח",
     "avatar_color": "from-gray-500 to-slate-500",
-    "story": "First-time visitor, browsing casually",
+    "story": "מבקר חדש, מעיין בלי התחייבות",
     "sessions": [],
     "total_views": 0,
     "total_cart_adds": 0
   },
   {
     "id": "user_member",
-    "name": "Alex Hiker",
+    "name": "מיכל שביל",
     "avatar_color": "from-emerald-500 to-teal-500",
-    "story": "Experienced hiker with ultralight preferences",
+    "story": "מטיילת מנוסה עם העדפה לציוד אולטרלייט",
     "sessions": [
       {
-        "goal": "Ultralight gear browsing",
-        "timeframe": "2 days ago",
+        "goal": "עיון בציוד אולטרלייט",
+        "timeframe": "לפני יומיים",
         "item_count": 4,
         "categories": [
-          "Backpacks",
-          "Tents"
+          "תיקי גב",
+          "אוהלים"
         ]
       }
     ],
@@ -193,25 +193,25 @@
   },
   {
     "id": "user_business",
-    "name": "Casey Campground",
+    "name": "עומר קמפינג",
     "avatar_color": "from-orange-500 to-red-500",
-    "story": "Campground owner purchasing bulk equipment",
+    "story": "בעל אתר קמפינג, רוכש ציוד בכמויות",
     "sessions": [
       {
-        "goal": "Bulk tent purchases for campground",
-        "timeframe": "4 days ago",
+        "goal": "רכישת אוהלים בכמות לאתר",
+        "timeframe": "לפני 4 ימים",
         "item_count": 3,
         "categories": [
-          "Tents"
+          "אוהלים"
         ]
       },
       {
-        "goal": "Campground amenities and supplies",
-        "timeframe": "1 days ago",
+        "goal": "ציוד ואביזרים לאתר הקמפינג",
+        "timeframe": "אתמול",
         "item_count": 8,
         "categories": [
-          "Cookware",
-          "Accessories"
+          "כלי בישול",
+          "אביזרים"
         ]
       }
     ],
