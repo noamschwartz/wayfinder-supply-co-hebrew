@@ -6,7 +6,7 @@ inputs:
   - name: user_id
     type: string
     required: true
-    description: "The user identifier (e.g., 'user_new', 'user_member', 'user_business')"
+    description: "מזהה המשתמש (לדוגמה: 'user_new', 'user_member', 'user_business')"
 
 triggers:
   - type: manual
@@ -40,10 +40,10 @@ steps:
     type: console
     with:
       message: |
-        Customer Profile for {{ inputs.user_id }}:
-        Name: {{ steps.call_crm_mcp.output.data.result.name }}
-        Loyalty Tier: {{ steps.call_crm_mcp.output.data.result.loyalty_tier }}
-        Lifetime Value: ${{ steps.call_crm_mcp.output.data.result.lifetime_value }}
-        Purchase History: {{ steps.call_crm_mcp.output.data.result.purchase_history | size }} items
+        פרופיל לקוח עבור {{ inputs.user_id }}:
+        שם: {{ steps.call_crm_mcp.output.data.result.name }}
+        רמת נאמנות: {{ steps.call_crm_mcp.output.data.result.loyalty_tier }}
+        ערך לקוח: ₪{{ steps.call_crm_mcp.output.data.result.lifetime_value }}
+        היסטוריית רכישות: {{ steps.call_crm_mcp.output.data.result.purchase_history | size }} פריטים
 
 
