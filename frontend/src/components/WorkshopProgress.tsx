@@ -155,7 +155,7 @@ export function WorkshopProgress({ defaultExpanded = true }: WorkshopProgressPro
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         onClick={toggleExpanded}
-        className="fixed right-4 top-24 z-40 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 flex items-center gap-2 hover:bg-slate-700 transition-colors shadow-lg"
+        className="fixed left-4 top-24 z-40 bg-slate-800 border border-slate-700 rounded-lg px-3 py-2 flex items-center gap-2 hover:bg-slate-700 transition-colors shadow-lg"
         title="Show workshop progress"
       >
         <div className="flex items-center gap-1.5">
@@ -180,7 +180,7 @@ export function WorkshopProgress({ defaultExpanded = true }: WorkshopProgressPro
     <motion.div
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
-      className="fixed right-4 top-24 z-40 w-64 bg-slate-900 border border-slate-700 rounded-xl shadow-xl overflow-hidden"
+      className="fixed left-4 top-24 z-40 w-64 bg-slate-900 border border-slate-700 rounded-xl shadow-xl overflow-hidden"
     >
       {/* Header */}
       <div className="bg-slate-800 px-4 py-3 flex items-center justify-between border-b border-slate-700">

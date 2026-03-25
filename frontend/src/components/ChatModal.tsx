@@ -116,8 +116,8 @@ export function ChatModal({ isOpen, onClose, userId, onOpenTripPlanner, initialM
     
     // Match patterns like "**ProductName** - $99.99" or "- ProductName ($99.99)"
     const patterns = [
-      /\*\*([^*]+)\*\*\s*-?\s*\$(\d+\.?\d*)/g,
-      /-\s*([^(\n]+)\s*\(\$(\d+\.?\d*)\)/g,
+      /\*\*([^*]+)\*\*\s*-?\s*[₪$](\d+\.?\d*)/g,
+      /-\s*([^(\n]+)\s*\([₪$](\d+\.?\d*)\)/g,
     ]
     
     patterns.forEach(pattern => {
@@ -312,7 +312,7 @@ export function ChatModal({ isOpen, onClose, userId, onOpenTripPlanner, initialM
             {step.type === 'reasoning' && step.reasoning && (
               <div>
                 <div className="text-xs font-semibold text-primary/70 mb-2 uppercase tracking-wide">
-                  Agent Thinking:
+                  הסוכן חושב:
                 </div>
                 <div className="bg-slate-800 rounded-md p-3">
                   <div className="text-xs text-gray-300 leading-relaxed">
@@ -417,8 +417,8 @@ export function ChatModal({ isOpen, onClose, userId, onOpenTripPlanner, initialM
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-white/10">
               <div>
-                <h2 className="text-2xl font-display font-bold text-white">Quick Chat</h2>
-                <p className="text-sm text-gray-400">Ask quick questions about gear</p>
+                <h2 className="text-2xl font-display font-bold text-white">צ׳אט מהיר</h2>
+                <p className="text-sm text-gray-400">שאלו שאלות מהירות על ציוד</p>
               </div>
               <div className="flex items-center gap-2">
                 <button
@@ -426,7 +426,7 @@ export function ChatModal({ isOpen, onClose, userId, onOpenTripPlanner, initialM
                   className="flex items-center gap-2 px-4 py-2 bg-primary/20 hover:bg-primary/30 text-primary rounded-lg transition-all text-sm font-medium border border-primary/30"
                 >
                   <ExternalLink className="w-4 h-4" />
-                  Open Trip Planner
+                  פתח מתכנן טיולים
                 </button>
                 <button
                   onClick={onClose}
@@ -442,12 +442,12 @@ export function ChatModal({ isOpen, onClose, userId, onOpenTripPlanner, initialM
               {messages.length === 0 ? (
                 <div className="flex items-center justify-center h-full text-center">
                   <div>
-                    <h3 className="text-xl font-semibold mb-2 text-white">Start a Conversation</h3>
+                    <h3 className="text-xl font-semibold mb-2 text-white">התחילו שיחה</h3>
                     <p className="text-gray-400">
-                      Ask quick questions about gear or your trip
+                      שאלו שאלות מהירות על ציוד או על הטיול שלכם
                     </p>
                     <p className="text-sm text-gray-500 mt-2">
-                      For detailed trip planning, use the Trip Planner
+                      לתכנון טיול מפורט, השתמשו במתכנן הטיולים
                     </p>
                   </div>
                 </div>
@@ -470,19 +470,19 @@ export function ChatModal({ isOpen, onClose, userId, onOpenTripPlanner, initialM
                           {message.status === 'thinking' && (
                             <>
                               <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-                              <span className="text-xs text-blue-400 font-medium">Thinking...</span>
+                              <span className="text-xs text-blue-400 font-medium">חושב...</span>
                             </>
                           )}
                           {message.status === 'working' && (
                             <>
                               <div className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
-                              <span className="text-xs text-orange-400 font-medium">Working...</span>
+                              <span className="text-xs text-orange-400 font-medium">עובד...</span>
                             </>
                           )}
                           {message.status === 'typing' && (
                             <>
                               <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                              <span className="text-xs text-green-400 font-medium">Typing...</span>
+                              <span className="text-xs text-green-400 font-medium">מקליד...</span>
                             </>
                           )}
                         </div>
@@ -502,7 +502,7 @@ export function ChatModal({ isOpen, onClose, userId, onOpenTripPlanner, initialM
                           >
                             <div className="flex items-center gap-1.5">
                               <Settings className="h-3 w-3" />
-                              <span>Agent Thinking</span>
+                              <span>הסוכן חושב</span>
                               <span className="text-xs bg-slate-700 text-gray-300 px-1.5 py-0.5 rounded-full">
                                 {message.steps.filter(step => 
                                   (step.type === 'reasoning' && step.reasoning) || 
@@ -542,7 +542,7 @@ export function ChatModal({ isOpen, onClose, userId, onOpenTripPlanner, initialM
                             const products = extractProductMentions(message.content)
                             return products.length > 0 && (
                               <div className="mt-3 space-y-2">
-                                <div className="text-xs font-medium text-gray-400 mb-1.5">Recommended Products:</div>
+                                <div className="text-xs font-medium text-gray-400 mb-1.5">מוצרים מומלצים:</div>
                                 <div className="grid grid-cols-2 gap-2">
                                   {products.slice(0, 4).map((prod, idx) => (
                                     <button
@@ -554,10 +554,10 @@ export function ChatModal({ isOpen, onClose, userId, onOpenTripPlanner, initialM
                                         {prod.name}
                                       </div>
                                       {prod.price && (
-                                        <div className="text-sm font-bold text-primary">${prod.price}</div>
+                                        <div className="text-sm font-bold text-primary">&#x20AA;{prod.price}</div>
                                       )}
                                       <div className="text-xs text-gray-500 mt-1 group-hover:text-gray-400 transition-colors">
-                                        Click to view & add to cart
+                                        לחצו לצפייה והוספה לעגלה
                                       </div>
                                     </button>
                                   ))}
@@ -581,7 +581,7 @@ export function ChatModal({ isOpen, onClose, userId, onOpenTripPlanner, initialM
                 <div className="flex justify-start">
                   <div className="bg-slate-800 rounded-2xl px-4 py-2 flex items-center gap-2">
                     <Loader2 className="w-4 h-4 animate-spin text-primary" />
-                    <span className="text-gray-300">Thinking...</span>
+                    <span className="text-gray-300">חושב...</span>
                   </div>
                 </div>
               )}
@@ -595,7 +595,7 @@ export function ChatModal({ isOpen, onClose, userId, onOpenTripPlanner, initialM
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
-                  placeholder="Ask a quick question..."
+                  placeholder="שאלו שאלה מהירה..."
                   className="flex-1 bg-slate-800 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
                   disabled={isLoading}
                 />
@@ -605,7 +605,7 @@ export function ChatModal({ isOpen, onClose, userId, onOpenTripPlanner, initialM
                   className="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                 >
                   <Send className="w-4 h-4" />
-                  Send
+                  שלח
                 </button>
               </div>
             </form>

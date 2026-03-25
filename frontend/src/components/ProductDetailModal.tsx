@@ -130,7 +130,7 @@ export function ProductDetailModal({ product, userId, onClose, onTagClick }: Pro
               {/* Price */}
               <div className="flex items-baseline gap-2 mb-6">
                 <span className="text-4xl font-display font-bold text-primary">
-                  ${product.price.toFixed(2)}
+                  ₪{product.price.toFixed(2)}
                 </span>
               </div>
 
@@ -170,7 +170,7 @@ export function ProductDetailModal({ product, userId, onClose, onTagClick }: Pro
               <div className="mb-8">
                 <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
                   Features
-                  {onTagClick && <span className="text-xs text-gray-500 font-normal ml-2">(click to explore)</span>}
+                  {onTagClick && <span className="text-xs text-gray-500 font-normal ml-2">(לחצו לפרטים)</span>}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {product.tags.map((tag) => (
@@ -205,11 +205,11 @@ export function ProductDetailModal({ product, userId, onClose, onTagClick }: Pro
                     exit={{ opacity: 0, height: 0 }}
                     className="mb-8 border-t border-slate-700 pt-6"
                   >
-                    <h3 className="text-lg font-display font-semibold text-white mb-4">Customer Reviews</h3>
+                    <h3 className="text-lg font-display font-semibold text-white mb-4">ביקורות לקוחות</h3>
                     {loadingReviews ? (
-                      <div className="text-gray-400">Loading reviews...</div>
+                      <div className="text-gray-400">טוען ביקורות...</div>
                     ) : reviews.length === 0 ? (
-                      <div className="text-gray-400">No reviews yet.</div>
+                      <div className="text-gray-400">אין ביקורות עדיין.</div>
                     ) : (
                       <div className="space-y-4 max-h-[300px] overflow-y-auto">
                         {reviews.map((review) => (
@@ -230,7 +230,7 @@ export function ProductDetailModal({ product, userId, onClose, onTagClick }: Pro
                               <span className="text-sm font-semibold text-white">{review.title}</span>
                               {review.verified_purchase && (
                                 <span className="text-xs bg-green-500/20 text-green-400 px-2 py-0.5 rounded">
-                                  Verified Purchase
+                                  רכישה מאומתת
                                 </span>
                               )}
                             </div>
@@ -271,7 +271,7 @@ export function ProductDetailModal({ product, userId, onClose, onTagClick }: Pro
                   className="flex-1 bg-primary hover:bg-primary-dark text-white font-semibold py-4 px-6 rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg shadow-primary/20 hover:shadow-primary/40"
                 >
                   <ShoppingCart className="w-5 h-5" />
-                  {adding ? 'Adding...' : 'Add to Cart'}
+                  {adding ? 'מוסיף...' : 'הוסף לעגלה'}
                 </button>
               </div>
             </div>

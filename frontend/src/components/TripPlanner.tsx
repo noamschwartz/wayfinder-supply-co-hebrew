@@ -672,10 +672,10 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-3xl font-display font-bold text-white mb-1">
-                Trip Planner
+                מתכנן טיולים
               </h1>
               <p className="text-gray-400 text-sm">
-                Plan your perfect adventure with AI-powered recommendations
+                תכננו את ההרפתקה המושלמת עם המלצות מבוססות AI
               </p>
             </div>
             {messages.length > 0 && (
@@ -697,7 +697,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
                 className="px-4 py-2 bg-primary/20 hover:bg-primary/30 text-primary rounded-lg transition-all text-sm font-medium flex items-center gap-2 border border-primary/30"
               >
                 <Plus className="w-4 h-4" />
-                New Trip
+                טיול חדש
               </button>
             )}
           </div>
@@ -714,7 +714,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
             <div className="glass rounded-xl p-3">
               <label className="flex items-center gap-2 text-xs font-medium text-gray-400 mb-1.5">
                 <MapPin className="w-3.5 h-3.5 text-primary" />
-                Destination
+                יעד
               </label>
               <input
                 type="text"
@@ -727,7 +727,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
             <div className="glass rounded-xl p-3">
               <label className="flex items-center gap-2 text-xs font-medium text-gray-400 mb-1.5">
                 <Calendar className="w-3.5 h-3.5 text-primary" />
-                Dates
+                תאריכים
               </label>
               <input
                 type="text"
@@ -740,7 +740,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
             <div className="glass rounded-xl p-3">
               <label className="flex items-center gap-2 text-xs font-medium text-gray-400 mb-1.5">
                 <Mountain className="w-3.5 h-3.5 text-primary" />
-                Activity
+                פעילות
               </label>
               <input
                 type="text"
@@ -759,7 +759,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
                   className="w-full px-4 py-2 bg-primary hover:bg-primary-dark text-white rounded-lg transition-all disabled:opacity-50 text-sm font-medium flex items-center justify-center gap-2"
                 >
                   <RefreshCw className={`w-4 h-4 ${isLoading ? 'animate-spin' : ''}`} />
-                  Update Plan
+                  עדכן תוכנית
                 </button>
               ) : itinerary.length > 0 ? (
                 <button
@@ -767,11 +767,11 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
                   className="w-full px-4 py-2 bg-primary/20 hover:bg-primary/30 text-primary rounded-lg transition-all text-sm font-medium flex items-center justify-center gap-2 border border-primary/30"
                 >
                   <Map className="w-4 h-4" />
-                  View Itinerary
+                  צפה בלוח זמנים
                 </button>
               ) : (
                 <div className="w-full px-4 py-2 bg-white/5 text-gray-500 rounded-lg text-sm text-center border border-white/10">
-                  Start planning below
+                  התחילו לתכנן למטה
                 </div>
               )}
             </div>
@@ -789,23 +789,23 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
                     <Compass className="w-8 h-8 text-primary animate-pulse" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-display font-bold text-white mb-2">Adventure Trip Planner</h3>
+                    <h3 className="text-lg font-display font-bold text-white mb-2">מתכנן טיולי הרפתקה</h3>
                     <p className="text-gray-400 text-sm">
-                      Tell me where you want to go and what you want to do. I'll help plan the perfect trip and find the right gear.
+                      ספרו לי לאן אתם רוצים לצאת ומה אתם רוצים לעשות. אעזור לתכנן את הטיול המושלם ולמצוא את הציוד הנכון.
                     </p>
                   </div>
                   <div className="grid grid-cols-1 gap-2 w-full">
                     <button
-                      onClick={() => setInput("Plan a 3-day backpacking trip to Yosemite next weekend")}
-                      className="text-left p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all text-sm text-gray-300"
+                      onClick={() => setInput("תכננו לי טיול של 3 ימים למכתש רמון בסוף השבוע")}
+                      className="text-right p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all text-sm text-gray-300"
                     >
-                      "Plan a 3-day backpacking trip to Yosemite next weekend"
+                      "תכננו לי טיול של 3 ימים למכתש רמון בסוף השבוע"
                     </button>
                     <button
-                      onClick={() => setInput("I want to go car camping in Banff with my family")}
-                      className="text-left p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all text-sm text-gray-300"
+                      onClick={() => setInput("אני רוצה לצאת לקמפינג משפחתי בבאנף")}
+                      className="text-right p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all text-sm text-gray-300"
                     >
-                      "I want to go car camping in Banff with my family"
+                      "אני רוצה לצאת לקמפינג משפחתי בבאנף"
                     </button>
                   </div>
                 </div>
@@ -819,7 +819,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
                           : 'bg-slate-800/80 text-gray-200 border border-white/10 rounded-tl-none'
                       }`}>
                         {message.role === 'assistant' && message.content ? (
-                          <div className="prose-custom">
+                          <div className="prose-custom" dir={message.content.includes('Trip Planner Agent Not Yet Built') ? 'ltr' : undefined}>
                             <ReactMarkdown components={markdownComponents}>
                               {message.content}
                             </ReactMarkdown>
@@ -863,7 +863,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
                           ) : (
                             <span className="flex items-center gap-2">
                               <CheckCircle2 className="w-3 h-3 text-green-400" />
-                              <span>Completed {(messageTraces[messages[index + 1]?.id] || thoughtTrace).length} steps</span>
+                              <span>הושלמו {(messageTraces[messages[index + 1]?.id] || thoughtTrace).length} שלבים</span>
                             </span>
                           )}
                         </button>
@@ -893,7 +893,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
                                   {trace.event === 'tool_result' && (
                                     <div className="flex items-start gap-2 text-gray-400">
                                       <CheckCircle2 className="w-3 h-3 mt-0.5 text-green-400" />
-                                      <span>Processed results</span>
+                                      <span>תוצאות עובדו</span>
                                     </div>
                                   )}
                                 </div>
@@ -938,7 +938,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
               <div className="flex items-center justify-between mb-3">
                 <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2">
                   <Backpack className="w-3.5 h-3.5 text-primary" />
-                  Recommended Gear
+                  ציוד מומלץ
                 </h4>
               </div>
               
@@ -988,7 +988,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
               ) : (
                 <div className="bg-slate-800/30 border border-dashed border-white/10 rounded-lg p-6 text-center">
                   <Tent className="w-6 h-6 text-gray-700 mx-auto mb-2" />
-                  <p className="text-[10px] text-gray-500">I'll suggest relevant gear as we plan your adventure.</p>
+                  <p className="text-[10px] text-gray-500">אציע ציוד רלוונטי תוך כדי תכנון ההרפתקה.</p>
                 </div>
               )}
             </div>
@@ -998,7 +998,7 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
               <div className="pt-3 border-t border-white/10">
                 <h4 className="text-xs font-bold text-white uppercase tracking-wider flex items-center gap-2 mb-3">
                   <CheckCircle2 className="w-3.5 h-3.5 text-green-500" />
-                  Essential Checklist
+                  רשימת ציוד חיוני
                 </h4>
                 <div className="space-y-1.5">
                   {otherRecommendedItems.map((item, idx) => (
