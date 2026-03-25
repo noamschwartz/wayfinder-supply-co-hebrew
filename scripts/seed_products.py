@@ -43,13 +43,23 @@ def seed_products(products_file: str):
     
     def doc_generator():
         for product in products:
+            # Use _update with doc to avoid triggering semantic_text inference
+            # (the index has ELSER-mapped fields that block full re-index)
             yield {
+                "_op_type": "update",
                 "_index": "product-catalog",
                 "_id": product["id"],
-                "_source": product
+                "doc": {
+                    "title": product["title"],
+                    "description": product["description"],
+                    "category": product["category"],
+                    "subcategory": product["subcategory"],
+                    "price": product["price"],
+                    "tags": product.get("tags", []),
+                }
             }
-    
-    print(f"Indexing {len(products)} products...")
+
+    print(f"Updating {len(products)} products with Hebrew translations...")
     success, failed = bulk(es, doc_generator(), raise_on_error=False)
     
     if failed:
@@ -77,13 +87,18 @@ def seed_reviews(reviews_file: str):
     
     def doc_generator():
         for review in reviews:
+            # Use _update with doc to avoid triggering semantic_text inference
             yield {
+                "_op_type": "update",
                 "_index": "product-reviews",
                 "_id": review["id"],
-                "_source": review
+                "doc": {
+                    "title": review.get("title", ""),
+                    "text": review.get("text", ""),
+                }
             }
-    
-    print(f"Indexing {len(reviews)} reviews...")
+
+    print(f"Updating {len(reviews)} reviews with Hebrew translations...")
     success, failed = bulk(es, doc_generator(), raise_on_error=False)
     
     if failed:
