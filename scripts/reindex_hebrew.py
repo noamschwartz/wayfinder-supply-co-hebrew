@@ -59,6 +59,18 @@ def fix_and_recreate_index(index_name):
     idx_name = list(mapping_data.keys())[0]
     mappings = mapping_data[idx_name]["mappings"]
 
+    # Remove model_settings from semantic_text fields (old ELSER settings conflict with E5)
+    def strip_model_settings(obj):
+        if isinstance(obj, dict):
+            obj.pop("model_settings", None)
+            for v in obj.values():
+                strip_model_settings(v)
+        elif isinstance(obj, list):
+            for item in obj:
+                strip_model_settings(item)
+
+    strip_model_settings(mappings)
+
     # Delete index
     print(f"  Deleting {index_name}...")
     es.indices.delete(index=index_name, ignore=[404])
