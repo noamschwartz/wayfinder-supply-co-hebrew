@@ -48,7 +48,7 @@ function extractIntroText(content: string): string {
     if (
       /^\d+\.\s+\*?\*?/.test(trimmed) ||  // Numbered list: "1. **Product"
       /^[-•*]\s+\*?\*?/.test(trimmed) ||   // Bullet list: "- **Product"
-      /\$\d+\.?\d*/.test(trimmed)          // Price: "$123.45"
+      /₪\d+\.?\d*/.test(trimmed)          // Price: "₪123.45"
     ) {
       break
     }

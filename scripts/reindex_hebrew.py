@@ -144,33 +144,34 @@ TAG_MAP = {
 
 
 def translate_clickstream_tags():
-    """Translate meta_tags in user-clickstream index from English to Hebrew."""
+    """Translate meta_tags in user-clickstream index from English to Hebrew.
+    Uses a single painless script to translate ALL tags in one pass,
+    avoiding version conflicts from sequential per-tag updates.
+    """
     print("\n=== Translating clickstream meta_tags ===")
 
-    # Use painless script to translate tags in-place
-    for en_tag, he_tag in TAG_MAP.items():
-        resp = es.update_by_query(
-            index="user-clickstream",
-            query={"term": {"meta_tags": en_tag}},
-            script={
-                "source": """
-                    if (ctx._source.meta_tags != null) {
-                        for (int i = 0; i < ctx._source.meta_tags.size(); i++) {
-                            if (ctx._source.meta_tags[i] == params.old_tag) {
-                                ctx._source.meta_tags[i] = params.new_tag;
-                            }
+    # Single painless script that translates all tags at once
+    resp = es.update_by_query(
+        index="user-clickstream",
+        query={"match_all": {}},
+        script={
+            "source": """
+                if (ctx._source.meta_tags != null) {
+                    for (int i = 0; i < ctx._source.meta_tags.size(); i++) {
+                        String tag = ctx._source.meta_tags[i];
+                        if (params.tag_map.containsKey(tag)) {
+                            ctx._source.meta_tags[i] = params.tag_map.get(tag);
                         }
                     }
-                """,
-                "params": {"old_tag": en_tag, "new_tag": he_tag},
-            },
-            conflicts="proceed",
-        )
-        updated = resp.get("updated", 0)
-        if updated > 0:
-            print(f"  {en_tag} → {he_tag}: {updated} docs")
-
-    es.indices.refresh(index="user-clickstream")
+                }
+            """,
+            "params": {"tag_map": TAG_MAP},
+        },
+        conflicts="proceed",
+        refresh=True,
+    )
+    updated = resp.get("updated", 0)
+    print(f"  Translated tags in {updated} docs")
     print("  ✓ Clickstream tags translated")
 
 

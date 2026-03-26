@@ -114,7 +114,7 @@ export function ChatModal({ isOpen, onClose, userId, onOpenTripPlanner, initialM
   const extractProductMentions = (content: string): Array<{name: string, price?: string}> => {
     const products: Array<{name: string, price?: string}> = []
     
-    // Match patterns like "**ProductName** - $99.99" or "- ProductName ($99.99)"
+    // Match patterns like "**ProductName** - ₪99.99" or "- ProductName (₪99.99)"
     const patterns = [
       /\*\*([^*]+)\*\*\s*-?\s*[₪$](\d+\.?\d*)/g,
       /-\s*([^(\n]+)\s*\([₪$](\d+\.?\d*)\)/g,

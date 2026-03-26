@@ -802,10 +802,10 @@ The **Trip Planner** feature requires the \`trip-planner-agent\` to be created.
                       "תכננו לי טיול של 3 ימים למכתש רמון בסוף השבוע"
                     </button>
                     <button
-                      onClick={() => setInput("אני רוצה לצאת לקמפינג משפחתי בבאנף")}
+                      onClick={() => setInput("אני רוצה לצאת לקמפינג משפחתי בכנרת")}
                       className="text-right p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all text-sm text-gray-300"
                     >
-                      "אני רוצה לצאת לקמפינג משפחתי בבאנף"
+                      "אני רוצה לצאת לקמפינג משפחתי בכנרת"
                     </button>
                   </div>
                 </div>

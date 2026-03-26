@@ -64,7 +64,7 @@ export function SearchMode({ mode, results, isLoading, onProductClick }: SearchM
             <p className={`text-base font-bold mb-1 ${
               mode === 'hybrid' ? 'text-cyan-400' : 'text-amber-400'
             }`}>
-              ${product.price?.toFixed(2)}
+              ₪{product.price?.toFixed(2)}
             </p>
             {product.description && (
               <p className="text-xs text-gray-400 line-clamp-2">{product.description}</p>

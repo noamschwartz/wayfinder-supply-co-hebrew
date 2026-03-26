@@ -277,7 +277,7 @@ export function DemoMode({
                         onClick={() => onProductClick(product)}
                       >
                         <h5 className="font-medium text-white text-sm">{product.title}</h5>
-                        <p className="text-xs text-gray-400 mt-1">${product.price?.toFixed(2)}</p>
+                        <p className="text-xs text-gray-400 mt-1">₪{product.price?.toFixed(2)}</p>
                         {product.explanation && (
                           <div className="mt-2 flex items-start gap-2 text-[11px] text-amber-400">
                             <Sparkles className="w-3 h-3 shrink-0 mt-0.5" />
@@ -367,7 +367,7 @@ export function DemoMode({
                         onClick={() => onProductClick(product)}
                       >
                         <h5 className="font-medium text-white text-sm">{product.title}</h5>
-                        <p className="text-xs text-gray-400 mt-1">${product.price?.toFixed(2)}</p>
+                        <p className="text-xs text-gray-400 mt-1">₪{product.price?.toFixed(2)}</p>
                         {product.explanation && (
                           <div className="mt-2 flex items-start gap-2 text-[11px] text-cyan-400">
                             <Sparkles className="w-3 h-3 shrink-0 mt-0.5" />
@@ -495,7 +495,7 @@ export function DemoMode({
                               >
                                 {product.title}
                               </h5>
-                              <p className="text-xs text-primary font-medium">${product.price?.toFixed(2)}</p>
+                              <p className="text-xs text-primary font-medium">₪{product.price?.toFixed(2)}</p>
                             </div>
                             {/* Add to Cart Button */}
                             <button
