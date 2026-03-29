@@ -246,7 +246,7 @@ function App() {
           <div className="flex items-center justify-between h-20">
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-3">
-                <h1 className="text-3xl font-display font-bold text-gradient">Wayfinder</h1>
+                <h1 className="text-3xl font-display font-bold text-gradient">מצפן</h1>
                 <span className="text-gray-500 text-xl">|</span>
                 <a
                   href="https://www.elastic.co/search-labs"

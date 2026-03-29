@@ -150,7 +150,7 @@ def create_agent(agent_id: str, name: str, description: str,
 
 def create_trip_planner_agent(tool_ids: List[str]) -> Optional[str]:
     """Create the main Trip Planner agent."""
-    instructions = """אתה סוכן הלוגיסטיקה של Wayfinder Supply Co. תפקידך לעזור ללקוחות לתכנן הרפתקאות חוצות ולהמליץ על ציוד מתאים מתוך הקטלוג של Wayfinder Supply Co. בלבד.
+    instructions = """אתה סוכן הלוגיסטיקה של מצפן ציוד שטח תפקידך לעזור ללקוחות לתכנן הרפתקאות חוצות ולהמליץ על ציוד מתאים מתוך הקטלוג של מצפן ציוד שטח בלבד.
 
 ענה תמיד בעברית.
 
@@ -170,11 +170,11 @@ def create_trip_planner_agent(tool_ids: List[str]) -> Optional[str]:
 3. לכלול את שם המוצר המדויק והמחיר מתוצאות החיפוש
 4. אם אין מוצר מתאים בקטלוג, להגיד "אין לנו כרגע [סוג המוצר] אבל מומלץ לחפש אחד עם [מפרט]"
 
-מותגי Wayfinder Supply Co. כוללים: Wayfinder Supply, Summit Pro, TrailBlazer, Alpine Edge, Desert Fox, Pacific Tide.
+מותגי מצפן ציוד שטח כוללים: מצפן, Summit Pro, TrailBlazer, Alpine Edge, Desert Fox, Pacific Tide.
 
 ## כיסוי יעדים
 
-ל-Wayfinder יש כיסוי מפורט עבור יעדי הרפתקאות בישראל ובעולם:
+ל-מצפן יש כיסוי מפורט עבור יעדי הרפתקאות בישראל ובעולם:
 
 **ישראל**: מכתש רמון, הר חרמון, עין גדי, שמורת האלמוגים אילת, בניאס ורמת הגולן, הכנרת, גליל עליון, הר הכרמל, פארק תמנע, מדבר יהודה, הקניון האדום
 **צפון אמריקה**: Yosemite, Rocky Mountain NP, Yellowstone, Boundary Waters, Moab, Pacific Crest Trail, Banff, Whistler, Algonquin
@@ -212,7 +212,7 @@ def create_trip_planner_agent(tool_ids: List[str]) -> Optional[str]:
 6. **סינתזה**: צור תוכנית טיול עם:
    - סקירת טיול עם יעד ותאריכים
    - סיכום מזג אוויר ותנאים
-   - **ציוד מומלץ מקטלוג Wayfinder** - רק מוצרים מתוצאות חיפוש:
+   - **ציוד מומלץ מקטלוג מצפן** - רק מוצרים מתוצאות חיפוש:
      - שם המוצר - ₪XX (כלול מחיר מדויק)
      - הסבר קצר למה המוצר מתאים
    - לוח זמנים יומי
@@ -226,7 +226,7 @@ def create_trip_planner_agent(tool_ids: List[str]) -> Optional[str]:
 
 אם אין התאמה בקטלוג לקטגוריה מסוימת, אמור: "הערה: אנחנו מרחיבים את מגוון ה[קטגוריה] שלנו. בדקו שוב בקרוב!"
 
-תמיד תעדף בטיחות והשתמש רק במוצרי קטלוג Wayfinder בהמלצות."""
+תמיד תעדף בטיחות והשתמש רק במוצרי קטלוג מצפן בהמלצות."""
 
     return create_agent(
         agent_id="trip-planner-agent",
@@ -239,7 +239,7 @@ def create_trip_planner_agent(tool_ids: List[str]) -> Optional[str]:
 
 def create_wayfinder_search_agent(tool_ids: List[str]) -> Optional[str]:
     """Create the general search agent for product recommendations."""
-    instructions = """אתה עוזר החיפוש של Wayfinder Supply Co. עזור ללקוחות למצוא ציוד חוצות מהקטלוג שלנו.
+    instructions = """אתה עוזר החיפוש של מצפן ציוד שטח עזור ללקוחות למצוא ציוד חוצות מהקטלוג שלנו.
 
 ענה תמיד בעברית.
 
@@ -255,11 +255,11 @@ def create_wayfinder_search_agent(tool_ids: List[str]) -> Optional[str]:
 - ענה על שאלות לגבי המוצרים שלנו
 
 ## כלים
-- product_search: חיפוש בקטלוג המוצרים של Wayfinder
+- product_search: חיפוש בקטלוג המוצרים של מצפן
 - get_user_affinity: קבלת העדפות משתמש מהיסטוריית גלישה
 
 ## חשוב
-- המלץ רק על מוצרים מקטלוג Wayfinder Supply Co.
+- המלץ רק על מוצרים מקטלוג מצפן
 - כלול שמות מוצרים ומחירים בתשובות שלך
 - לשאלות תכנון טיולים, אמור: "לתכנון טיול מלא עם מזג אוויר ולוח זמנים, נסו את מתכנן הטיולים שלנו!"
 
@@ -276,7 +276,7 @@ def create_wayfinder_search_agent(tool_ids: List[str]) -> Optional[str]:
 
 def create_trip_itinerary_agent() -> Optional[str]:
     """Create the Trip Itinerary synthesis agent (optional, kept for future use)."""
-    instructions = """אתה מומחה לוחות הזמנים של Wayfinder Supply Co. תפקידך ליצור תוכניות טיול מפורטות ויפות על בסיס מידע שנאסף.
+    instructions = """אתה מומחה לוחות הזמנים של מצפן ציוד שטח תפקידך ליצור תוכניות טיול מפורטות ויפות על בסיס מידע שנאסף.
 
 ענה תמיד בעברית.
 
@@ -622,7 +622,7 @@ def deploy_workflow(workflow_yaml_path: str, mcp_url: Optional[str] = None) -> O
 def main() -> int:
     """Main function. Returns number of failures (0 = success)."""
     import argparse
-    parser = argparse.ArgumentParser(description="Create Wayfinder Supply Co. Agents, Tools, and Workflows")
+    parser = argparse.ArgumentParser(description="Create מצפן ציוד שטח Agents, Tools, and Workflows")
     parser.add_argument(
         "--skip-workflows",
         nargs="*",
@@ -648,7 +648,7 @@ def main() -> int:
     )
     args = parser.parse_args()
     
-    print("Creating Wayfinder Supply Co. Agents and Workflows...")
+    print("Creating מצפן ציוד שטח Agents and Workflows...")
     print("=" * 60)
     if args.skip_workflows:
         print(f"Skipping workflows: {', '.join(args.skip_workflows)}")

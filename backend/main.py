@@ -31,9 +31,9 @@ logging.basicConfig(
 logger = logging.getLogger("wayfinder.backend")
 
 app = FastAPI(
-    title="Wayfinder Supply Co. Backend API",
+    title="מצפן ציוד שטח - Backend API",
     version="1.0.0",
-    description="Backend API for Wayfinder Supply Co. workshop"
+    description="Backend API for מצפן ציוד שטח workshop"
 )
 
 # Exception handlers
@@ -81,7 +81,7 @@ async def root():
         return FileResponse(INDEX_HTML)
 
     logger.warning("index.html not found, serving default API message")
-    return JSONResponse({"message": "Wayfinder Supply Co. Backend API", "status": "running"})
+    return JSONResponse({"message": "מצפן ציוד שטח - Backend API", "status": "running"})
 
 
 @app.get("/health")

@@ -303,7 +303,7 @@ def get_trip_conditions(location: str, dates: str) -> Dict:
             "covered": False,
             "queried_location": location,
             "likely_region": likely_region,
-            "message": f"ל-Wayfinder אין עדיין כיסוי מפורט ל-'{location}', אבל אנחנו כל הזמן מתרחבים!",
+            "message": f"ל-מצפן אין עדיין כיסוי מפורט ל-'{location}', אבל אנחנו כל הזמן מתרחבים!",
             "alternatives": alternatives,
             "suggestion": "רוצה שאעזור לתכנן לאחד מהיעדים המכוסים שלנו? או שאוכל לתת הכוונה כללית לפי תנאים אופייניים."
         }

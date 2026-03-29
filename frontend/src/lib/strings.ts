@@ -1,5 +1,5 @@
 /**
- * Hebrew UI strings for Wayfinder Supply Co.
+ * Hebrew UI strings for מצפן ציוד שטח
  * Centralized translations for all user-facing text.
  */
 

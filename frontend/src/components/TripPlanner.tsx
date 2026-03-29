@@ -49,7 +49,7 @@ function getCurrentStatus(events: ThoughtTraceEvent[], isLoading: boolean): stri
 }
 
 // Known brand names in our catalog
-const KNOWN_BRANDS = ['Wayfinder Supply', 'Summit Pro', 'TrailBlazer', 'PocketRocket', 'Basecamp', 'Apex Expedition', 'Summit', 'Wayfinder']
+const KNOWN_BRANDS = ['מצפן', 'Summit Pro', 'TrailBlazer', 'PocketRocket', 'Basecamp', 'Apex Expedition', 'Summit']
 
 // Gear category keywords for semantic search
 const GEAR_CATEGORIES = [

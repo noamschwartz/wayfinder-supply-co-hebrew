@@ -19,7 +19,7 @@
     "purchase_history": [
       {
         "sku": "WF-CHAIN-01",
-        "name": "Wayfinder Supply Pro - שרשראות צמיגים",
+        "name": "מצפן Pro - שרשראות צמיגים",
         "date": "2023-11-15",
         "price": 540
       },
@@ -38,7 +38,7 @@
     ],
     "preferences": {
       "style": "ultralight",
-      "brand_affinity": ["Wayfinder Supply"]
+      "brand_affinity": ["מצפן"]
     }
   },
   "user_business": {

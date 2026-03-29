@@ -28,7 +28,7 @@ const DISPLAY_NAMES: Record<string, string> = {
   'tool-esql-get-user-affinity': 'User Affinity (ES|QL)',
   'tool-workflow-get-customer-profile': 'Customer Profile Tool',
   // Agents
-  'wayfinder-search-agent': 'Wayfinder Search',
+  'wayfinder-search-agent': 'חיפוש מצפן',
   'trip-planner-agent': 'Trip Planner',
 }
 
