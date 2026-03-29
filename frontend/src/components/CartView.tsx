@@ -39,7 +39,7 @@ const MOCK_CART_PLATINUM: Cart = {
   ...MOCK_CART,
   discount: 95.00,
   total: 854.98,
-  loyalty_perks: ['10% member discount applied', 'Free expedited shipping', 'Bonus reward points: 854']
+  loyalty_perks: ['הנחת חבר 10% הופעלה', 'משלוח מהיר חינם', 'נקודות בונוס: 854']
 }
 
 export function CartView({ userId, loyaltyTier }: CartViewProps) {

@@ -90,10 +90,10 @@ async def get_cart(user_id: str, loyalty_tier: Optional[str] = None):
     
     if loyalty_tier == "platinum":
         discount = subtotal * 0.10  # 10% discount
-        perks.append("Free overnight shipping")
+        perks.append("משלוח מהיר חינם")
     elif loyalty_tier == "business":
         discount = subtotal * 0.15  # 15% bulk discount
-        perks.append("Net-30 payment terms")
+        perks.append("תנאי תשלום שוטף+30")
     
     total = subtotal - discount
     
