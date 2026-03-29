@@ -107,6 +107,27 @@ def index_products(products_path):
 
     es.indices.refresh(index="product-catalog")
 
+    # Wait for semantic_text embeddings to be generated (async inference)
+    print("  Waiting for semantic embeddings to complete...")
+    for attempt in range(30):
+        try:
+            # Try a semantic query — if embeddings aren't ready, it will fail or return 0
+            resp = es.search(
+                index="product-catalog",
+                size=1,
+                query={"semantic": {"field": "description.semantic", "query": "אוהל"}},
+            )
+            hits = resp["hits"]["total"]["value"]
+            if hits > 0:
+                print(f"  ✓ Semantic embeddings ready ({hits} results for test query)")
+                break
+        except Exception as e:
+            pass
+        if attempt < 29:
+            time.sleep(5)
+    else:
+        print("  ⚠️ Semantic embeddings may not be fully ready (hybrid search might be slow initially)")
+
 
 def index_reviews(reviews_path):
     """Bulk index reviews from JSON file."""

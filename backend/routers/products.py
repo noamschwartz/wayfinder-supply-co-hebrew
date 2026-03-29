@@ -416,17 +416,42 @@ async def hybrid_search(
             "personalized": personalized
         }
     except Exception as e:
-        # Don't silently fallback - fail clearly so we know there's an issue
         error_msg = str(e)
-        print(f"ERROR: Hybrid search failed: {error_msg}")
-        
-        # Check if it's a semantic field issue
-        if "semantic" in error_msg.lower() or "inference" in error_msg.lower():
-            raise HTTPException(
-                status_code=500, 
-                detail=f"Hybrid search requires semantic_text field 'description.semantic'. Error: {error_msg}"
+        print(f"WARNING: Hybrid search failed, falling back to lexical: {error_msg}")
+
+        # Fallback to lexical search if semantic/hybrid fails
+        # (embeddings may not be ready yet after index recreation)
+        try:
+            lexical_query = {
+                "multi_match": {
+                    "query": q,
+                    "fields": ["title^3", "description^2", "category^2", "brand", "tags"],
+                    "type": "best_fields",
+                    "fuzziness": "AUTO"
+                }
+            }
+            fallback_response = es.search(
+                index="product-catalog",
+                query=lexical_query,
+                size=limit,
+                highlight={"fields": {"title": {}, "description": {}}}
             )
-        raise HTTPException(status_code=500, detail=f"Hybrid search error: {error_msg}")
+            products = []
+            for hit in fallback_response["hits"]["hits"]:
+                product = hit["_source"]
+                product["id"] = hit["_id"]
+                product["_score"] = hit["_score"]
+                products.append(product)
+
+            return {
+                "products": products,
+                "total": fallback_response["hits"]["total"]["value"],
+                "query": q,
+                "search_type": "lexical_fallback",
+                "personalized": False
+            }
+        except Exception as fallback_e:
+            raise HTTPException(status_code=500, detail=f"Hybrid search error: {error_msg}")
 
 
 @router.get("/products/{product_id}")

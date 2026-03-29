@@ -6,7 +6,7 @@ interface DemoOverlayProps {
   message?: string
 }
 
-export function DemoOverlay({ isVisible, message = 'Setting up demo...' }: DemoOverlayProps) {
+export function DemoOverlay({ isVisible, message = 'מכין הדגמה...' }: DemoOverlayProps) {
   return (
     <AnimatePresence>
       {isVisible && (
@@ -36,7 +36,7 @@ export function DemoOverlay({ isVisible, message = 'Setting up demo...' }: DemoO
                   {message}
                 </h3>
                 <p className="text-sm text-gray-400 text-center">
-                  Switching to Sarah Martinez and loading Trip Planner...
+                  עובר לשרה כהן וטוען את מתכנן הטיולים...
                 </p>
               </div>
             </div>

@@ -22,7 +22,7 @@ export function SearchComparisonDemo({ onClose, userId }: SearchComparisonDemoPr
   const [expandedSteps, setExpandedSteps] = useState<Set<string>>(new Set())
   const [stepsExpanded, setStepsExpanded] = useState<boolean>(false)
 
-  const query = 'gear to keep my feet dry on slippery mountain trails'
+  const query = 'ציוד לשמור על הרגליים יבשות בשבילי הרים חלקלקים'
 
   // Helper to extract product IDs from agent tool results
   const extractProductIdsFromSteps = (steps: AgentStep[]): string[] => {
@@ -155,10 +155,10 @@ export function SearchComparisonDemo({ onClose, userId }: SearchComparisonDemoPr
         <div className="flex items-center justify-between p-6 border-b border-slate-700">
           <div>
             <h2 className="text-2xl font-display font-bold text-white mb-1">
-              Search Mode Comparison
+              השוואת מצבי חיפוש
             </h2>
             <p className="text-gray-400 text-sm">
-              Query: &quot;{query}&quot;
+              שאילתה: &quot;{query}&quot;
             </p>
           </div>
           <button
@@ -176,13 +176,13 @@ export function SearchComparisonDemo({ onClose, userId }: SearchComparisonDemoPr
             <div className="bg-amber-950/20 border border-amber-700/30 rounded-lg p-4 h-fit">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-5 h-5 text-amber-400" />
-                <h3 className="text-lg font-semibold text-white">Lexical</h3>
+                <h3 className="text-lg font-semibold text-white">לקסיקלי</h3>
                 <span className="text-xs bg-amber-600/20 text-amber-400 px-2 py-0.5 rounded">
                   BM25
                 </span>
               </div>
               <p className="text-sm text-gray-400 mb-4">
-                Keyword matching only - misses conceptual intent
+                התאמת מילות מפתח בלבד - מפספס כוונה סמנטית
               </p>
               <div className="space-y-3">
                 {lexicalResults.length > 0 ? (
@@ -201,13 +201,13 @@ export function SearchComparisonDemo({ onClose, userId }: SearchComparisonDemoPr
             <div className="bg-cyan-950/20 border border-cyan-700/30 rounded-lg p-4 h-fit">
               <div className="flex items-center gap-2 mb-4">
                 <Search className="w-5 h-5 text-cyan-400" />
-                <h3 className="text-lg font-semibold text-white">Hybrid</h3>
+                <h3 className="text-lg font-semibold text-white">היברידי</h3>
                 <span className="text-xs bg-cyan-600/20 text-cyan-400 px-2 py-0.5 rounded">
                   Semantic + BM25
                 </span>
               </div>
               <p className="text-sm text-gray-400 mb-4">
-                Combines semantic understanding with keywords
+                משלב הבנה סמנטית עם מילות מפתח
               </p>
               <div className="space-y-3">
                 {hybridResults.length > 0 ? (
@@ -226,13 +226,13 @@ export function SearchComparisonDemo({ onClose, userId }: SearchComparisonDemoPr
             <div className="bg-primary/10 border border-primary/30 rounded-lg p-4 h-fit">
               <div className="flex items-center gap-2 mb-4">
                 <MessageSquare className="w-5 h-5 text-primary" />
-                <h3 className="text-lg font-semibold text-white">Agentic</h3>
+                <h3 className="text-lg font-semibold text-white">אגנטי</h3>
                 <span className="text-xs bg-primary/20 text-primary px-2 py-0.5 rounded">
-                  AI Reasoning
+                  חשיבת AI
                 </span>
               </div>
               <p className="text-sm text-gray-400 mb-4">
-                AI agent reasons about intent and uses tools
+                סוכן AI מנתח כוונה ומשתמש בכלים
               </p>
               
               <div className="bg-slate-800/50 rounded-lg p-4 mb-4">
@@ -242,7 +242,7 @@ export function SearchComparisonDemo({ onClose, userId }: SearchComparisonDemoPr
                     {agenticMessage.status !== 'complete' && (
                       <div className="flex items-center gap-2 mb-3">
                         <Loader2 className="w-4 h-4 animate-spin text-primary" />
-                        <span className="text-xs text-primary font-medium">Agent is thinking...</span>
+                        <span className="text-xs text-primary font-medium">הסוכן חושב...</span>
                       </div>
                     )}
 
@@ -254,7 +254,7 @@ export function SearchComparisonDemo({ onClose, userId }: SearchComparisonDemoPr
                           className="flex items-center gap-2 text-xs text-gray-400 hover:text-gray-300"
                         >
                           {stepsExpanded ? <ChevronDown className="w-3 h-3" /> : <ChevronRight className="w-3 h-3" />}
-                          <span>Thought Trace ({agenticMessage.steps.length})</span>
+                          <span>מעקב חשיבה ({agenticMessage.steps.length})</span>
                         </button>
                         {stepsExpanded && (
                           <div className="space-y-1 mt-2">
@@ -286,7 +286,7 @@ export function SearchComparisonDemo({ onClose, userId }: SearchComparisonDemoPr
               {/* Agentic Products */}
               {agenticProducts.length > 0 && (
                 <div className="space-y-3 pt-4 border-t border-slate-700">
-                  <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">Recommended Gear</p>
+                  <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-2">ציוד מומלץ</p>
                   {agenticProducts.map(product => (
                     <ProductCard key={product.id} product={product} userId={userId} />
                   ))}

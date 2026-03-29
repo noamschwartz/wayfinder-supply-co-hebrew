@@ -204,7 +204,7 @@ function App() {
     // Wait a moment for overlay to show
     await new Promise(resolve => setTimeout(resolve, 500))
     
-    // Switch to Sarah Martinez persona for personalized results
+    // Switch to שרה כהן persona for personalized results
     const sarahPersona = personas.find(p => p.id === 'ultralight_backpacker_sarah')
     if (sarahPersona) {
       setCurrentUser('ultralight_backpacker_sarah')

@@ -48,7 +48,7 @@ export function UserAccountPage({ currentUserId, onSelectUser }: UserAccountPage
     return [
       {
         id: 'ultralight_backpacker_sarah',
-        name: 'Sarah Martinez',
+        name: 'שרה כהן',
         avatar_color: 'from-teal-500 to-cyan-500',
         story: 'Planning a 3-week Pacific Crest Trail thru-hike',
         sessions: [

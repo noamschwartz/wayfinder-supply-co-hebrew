@@ -13,7 +13,7 @@ export function PersonalizationDemo({ onClose }: PersonalizationDemoProps) {
   const [guestResults, setGuestResults] = useState<Product[]>([])
   const [sarahResults, setSarahResults] = useState<Product[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  const query = 'backpacking gear'
+  const query = 'ציוד טרקים'
 
   useEffect(() => {
     const runComparison = async () => {
@@ -56,10 +56,10 @@ export function PersonalizationDemo({ onClose }: PersonalizationDemoProps) {
         <div className="flex items-center justify-between p-6 border-b border-slate-700">
           <div>
             <h2 className="text-2xl font-display font-bold text-white mb-1">
-              Personalization Comparison
+              השוואת התאמה אישית
             </h2>
             <p className="text-gray-400 text-sm">
-              Same query: &quot;{query}&quot;
+              אותה שאילתה: &quot;{query}&quot;
             </p>
           </div>
           <button
@@ -82,10 +82,10 @@ export function PersonalizationDemo({ onClose }: PersonalizationDemoProps) {
               <div>
                 <div className="mb-4">
                   <h3 className="text-lg font-semibold text-white mb-2">
-                    Guest User (No Personalization)
+                    משתמש אורח (ללא התאמה אישית)
                   </h3>
                   <p className="text-sm text-gray-400">
-                    Standard search results
+                    תוצאות חיפוש רגילות
                   </p>
                 </div>
                 <div className="space-y-4">
@@ -110,10 +110,10 @@ export function PersonalizationDemo({ onClose }: PersonalizationDemoProps) {
               <div>
                 <div className="mb-4">
                   <h3 className="text-lg font-semibold text-white mb-2">
-                    Alex Hiker (Experienced Member)
+                    מיכל שביל (חברת פלטינום)
                   </h3>
                   <p className="text-sm text-gray-400">
-                    Personalized for: <span className="text-primary font-medium">Ultralight & Expedition</span>
+                    מותאם אישית: <span className="text-primary font-medium">אולטרלייט ומשלחת</span>
                   </p>
                 </div>
                 <div className="space-y-4">
@@ -132,7 +132,7 @@ export function PersonalizationDemo({ onClose }: PersonalizationDemoProps) {
                           <div className="mt-2 px-3 py-2 bg-primary/10 border border-primary/20 rounded-lg flex items-start gap-2">
                             <Sparkles className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
                             <p className="text-[11px] text-gray-300 leading-tight">
-                              <span className="text-primary font-medium">Personalization: </span>
+                              <span className="text-primary font-medium">התאמה אישית: </span>
                               {product.explanation}
                             </p>
                           </div>
