@@ -51,7 +51,7 @@ export function ClickstreamEventsModal({
       const date = new Date(timestamp)
       return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
     } catch {
-      return 'Unknown time'
+      return 'שעה לא ידועה'
     }
   }
 
@@ -60,7 +60,7 @@ export function ClickstreamEventsModal({
       const date = new Date(timestamp)
       return date.toLocaleDateString([], { month: 'short', day: 'numeric' })
     } catch {
-      return 'Unknown date'
+      return 'תאריך לא ידוע'
     }
   }
 
@@ -93,9 +93,9 @@ export function ClickstreamEventsModal({
             </div>
 
             {loading ? (
-              <div className="text-gray-400 text-center py-8">Loading events...</div>
+              <div className="text-gray-400 text-center py-8">טוען אירועים...</div>
             ) : events.length === 0 ? (
-              <div className="text-gray-500 text-center py-8">No events yet</div>
+              <div className="text-gray-500 text-center py-8">אין אירועים עדיין</div>
             ) : (
               <div className="space-y-2">
                 {events.map((event, idx) => (

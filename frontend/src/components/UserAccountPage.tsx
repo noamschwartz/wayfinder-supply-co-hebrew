@@ -147,7 +147,7 @@ export function UserAccountPage({ currentUserId, onSelectUser }: UserAccountPage
       <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
-          <p className="text-gray-400">Loading user personas...</p>
+          <p className="text-gray-400">טוען פרופילי משתמשים...</p>
         </div>
       </div>
     )
@@ -158,10 +158,10 @@ export function UserAccountPage({ currentUserId, onSelectUser }: UserAccountPage
       <div className="max-w-6xl mx-auto">
         <div className="mb-8">
           <h1 className="text-4xl font-display font-bold text-white mb-2">
-            User Personas
+            פרופילי משתמשים
           </h1>
           <p className="text-gray-400">
-            Switch between different user profiles to see personalized recommendations based on their browsing history
+            עברו בין פרופילי משתמשים שונים כדי לראות המלצות מותאמות אישית לפי היסטוריית הגלישה
           </p>
         </div>
 
@@ -172,7 +172,7 @@ export function UserAccountPage({ currentUserId, onSelectUser }: UserAccountPage
               onClick={() => onSelectUser(user.id, user)}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className={`bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border-2 transition-all text-left ${
+              className={`bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border-2 transition-all text-right ${
                 currentUserId === user.id
                   ? 'border-primary shadow-lg shadow-primary/20'
                   : 'border-slate-700 hover:border-slate-600'
@@ -199,7 +199,7 @@ export function UserAccountPage({ currentUserId, onSelectUser }: UserAccountPage
                   </div>
                   {currentUserId === user.id && (
                     <span className="inline-block px-2 py-0.5 bg-primary/20 text-primary text-xs font-semibold rounded-full">
-                      Active
+                      פעיל
                     </span>
                   )}
                 </div>
@@ -217,14 +217,14 @@ export function UserAccountPage({ currentUserId, onSelectUser }: UserAccountPage
                 <div className="bg-slate-900/50 rounded-lg p-3 border border-slate-700/30">
                   <div className="flex items-center gap-2 text-gray-400 text-xs mb-1">
                     <TrendingUp className="w-3 h-3" />
-                    <span>Total Views</span>
+                    <span>צפיות</span>
                   </div>
                   <div className="text-2xl font-bold text-white">{user.total_views}</div>
                 </div>
                 <div className="bg-slate-900/50 rounded-lg p-3 border border-slate-700/30">
                   <div className="flex items-center gap-2 text-gray-400 text-xs mb-1">
                     <ShoppingBag className="w-3 h-3" />
-                    <span>Cart Adds</span>
+                    <span>הוספות לעגלה</span>
                   </div>
                   <div className="text-2xl font-bold text-primary">{user.total_cart_adds}</div>
                 </div>
@@ -234,7 +234,7 @@ export function UserAccountPage({ currentUserId, onSelectUser }: UserAccountPage
               {user.sessions.length > 0 ? (
                 <div>
                   <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">
-                    Recent Shopping Sessions
+                    היסטוריית גלישה אחרונה
                   </h4>
                   <div className="space-y-2">
                     {user.sessions.slice(0, 3).map((session, idx) => (
@@ -248,7 +248,7 @@ export function UserAccountPage({ currentUserId, onSelectUser }: UserAccountPage
                             <div className="flex items-center gap-2 mb-2">
                               <span className="text-xs text-gray-500">{session.timeframe}</span>
                               <span className="text-xs text-gray-600">•</span>
-                              <span className="text-xs text-gray-500">{session.item_count} items viewed</span>
+                              <span className="text-xs text-gray-500">{session.item_count} פריטים נצפו</span>
                             </div>
                             <div className="flex flex-wrap gap-1.5">
                               {session.categories.map((cat) => (
@@ -265,7 +265,7 @@ export function UserAccountPage({ currentUserId, onSelectUser }: UserAccountPage
                 </div>
               ) : (
                 <div className="text-center py-4 text-gray-500 text-sm">
-                  No browsing history yet
+                  אין היסטוריית גלישה עדיין
                 </div>
               )}
             </motion.button>
