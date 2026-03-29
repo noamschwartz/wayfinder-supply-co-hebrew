@@ -16,11 +16,11 @@ interface StorefrontProps {
 
 const categories = [
   { value: 'All', label: 'הכל' },
-  { value: 'Camping', label: 'קמפינג' },
-  { value: 'Hiking', label: 'טיולים' },
-  { value: 'Climbing', label: 'טיפוס' },
-  { value: 'Water Sports', label: 'ספורט מים' },
-  { value: 'Winter', label: 'חורף' },
+  { value: 'קמפינג', label: 'קמפינג' },
+  { value: 'טיולים', label: 'טיולים' },
+  { value: 'טיפוס', label: 'טיפוס' },
+  { value: 'ספורט מים', label: 'ספורט מים' },
+  { value: 'ספורט חורף', label: 'ספורט חורף' },
 ]
 
 // Inline mock products for demo mode (used when backend is unavailable)
@@ -134,14 +134,14 @@ export function Storefront({ userId, onStartChat, focusMode = false }: Storefron
   const loadProducts = async () => {
     try {
       setLoading(true)
-      const category = selectedCategory === 'All' ? undefined : selectedCategory.toLowerCase()
+      const category = selectedCategory === 'All' ? undefined : selectedCategory
       const data = await api.getProducts(category, 12)
       setProducts(data.products)
       setUsingMockData(false)
     } catch (err) {
       // Use mock data when backend is unavailable
       console.warn('Backend unavailable, using mock data')
-      const category = selectedCategory === 'All' ? undefined : selectedCategory.toLowerCase()
+      const category = selectedCategory === 'All' ? undefined : selectedCategory
       const filteredMock = category 
         ? MOCK_PRODUCTS.filter(p => p.category === category)
         : MOCK_PRODUCTS
